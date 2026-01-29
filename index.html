@@ -5,133 +5,63 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tahoe Visuals Studio</title>
 
-<meta name="description" content="Sessions, events, and adventures by Lake Tahoe. Cinematic photography.">
-<meta name="theme-color" content="#0b0b0b">
-
 <style>
-:root {
-  --bg:#0b0b0b;
-  --fg:#f2f2f2;
-  --muted:#bdbdbd;
-  --accent:#d0d0d0;
+body {
+  margin: 0;
+  background: #0b0b0b;
+  color: #f2f2f2;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 20px;
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
-
-html,body{
-  background:var(--bg);
-  color:var(--fg);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  scroll-behavior:smooth;
+h1 {
+  font-size: 2.5rem;
 }
 
-header{
-  position:fixed;
-  top:0;
-  width:100%;
-  z-index:10;
-  background:rgba(0,0,0,.55);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(255,255,255,.08);
+p {
+  color: #bdbdbd;
+  margin-top: 12px;
+  line-height: 1.6;
 }
 
-.nav{
-  max-width:1200px;
-  margin:auto;
-  padding:14px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+form {
+  margin-top: 24px;
 }
 
-.nav img{height:42px}
-
-.nav a{
-  color:var(--muted);
-  text-decoration:none;
-  margin-left:24px;
-  font-weight:500;
+input, textarea {
+  width: 100%;
+  max-width: 320px;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: none;
 }
 
-.nav a:hover{color:var(--fg)}
-
-.hero{
-  height:100vh;
-  position:relative;
-  overflow:hidden;
+button {
+  margin-top: 12px;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
 }
+</style>
+</head>
 
-.hero-slide{
-  position:absolute;
-  inset:0;
-  background-size:cover;
-  background-position:center;
-  opacity:0;
-  animation:fade 24s infinite;
-}
+<body>
+  <div>
+    <h1>Tahoe Visuals Studio</h1>
+    <p>Sessions · Events · Adventures by Lake Tahoe</p>
 
-.hero-slide:nth-child(1){animation-delay:0s}
-.hero-slide:nth-child(2){animation-delay:6s}
-.hero-slide:nth-child(3){animation-delay:12s}
-.hero-slide:nth-child(4){animation-delay:18s}
-
-@keyframes fade{
-  0%{opacity:0}
-  10%{opacity:1}
-  25%{opacity:1}
-  35%{opacity:0}
-  100%{opacity:0}
-}
-
-.hero-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    to bottom,
-    rgba(0,0,0,.45),
-    rgba(0,0,0,.75)
-  );
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:20px;
-}
-
-.hero-content h1{
-  font-size:clamp(2.5rem,5vw,4rem);
-  letter-spacing:1px;
-}
-
-.hero-content p{
-  margin-top:16px;
-  font-size:1.1rem;
-  color:var(--muted);
-}
-
-section{
-  max-width:1100px;
-  margin:auto;
-  padding:100px 20px;
-}
-
-section h2{
-  font-size:2rem;
-  margin-bottom:20px;
-}
-
-section p{
-  color:var(--muted);
-  max-width:700px;
-  line-height:1.6;
-}
-
-.grid{
-  display:grid;
-  grid-template
+    <form action="https://formspree.io/f/xlgnjrvl" method="POST">
+      <input type="email" name="email" placeholder="Your email" required>
+      <textarea name="message" placeholder="Your message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</body>
+</html>
