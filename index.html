@@ -1,207 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Tahoe Visuals Studio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Sessions, events, and adventures by Lake Tahoe. Premium photo and video experiences." />
+<meta charset="UTF-8">
+<title>Tahoe Visuals Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    :root{
-      --bg:#0b0b0b;
-      --text:#ffffff;
-      --muted:#a3a3a3;
-      --accent:#2563eb;
-      --card:#151515;
-    }
+<style>
+:root{
+  --bg:#060606;
+  --text:#f5f5f5;
+  --muted:#9ca3af;
+  --accent:#e5e7eb;
+}
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,Inter,system-ui,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.6;
-    }
+*{box-sizing:border-box;margin:0;padding:0}
 
-    a{text-decoration:none;color:inherit}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Inter",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
 
-    /* HERO */
-    .hero{
-      position:relative;
-      height:100vh;
-      background:
-        linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),
-        url("images/hero-lake-sunset.jpg") center/cover no-repeat;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:20px;
-    }
+/* ---------- HERO ---------- */
+.hero{
+  min-height:100vh;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.3), rgba(0,0,0,.85)),
+    url("images/hero-lake-sunset.jpg") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  padding:80px 20px;
+}
 
-    .hero h1{
-      font-size:clamp(2.5rem,6vw,4rem);
-      margin-bottom:10px;
-    }
+.hero-inner{
+  max-width:1100px;
+  margin:auto;
+}
 
-    .hero p{
-      color:var(--muted);
-      font-size:1.1rem;
-      margin-bottom:28px;
-    }
+.hero h1{
+  font-size:clamp(3rem,6vw,5rem);
+  font-weight:700;
+  letter-spacing:-1px;
+}
 
-    .btn{
-      display:inline-block;
-      background:var(--accent);
-      padding:14px 28px;
-      border-radius:30px;
-      font-weight:600;
-    }
+.hero p{
+  margin-top:18px;
+  max-width:520px;
+  font-size:1.1rem;
+  color:var(--muted);
+}
 
-    /* SECTIONS */
-    section{
-      max-width:1100px;
-      margin:auto;
-      padding:90px 20px;
-    }
+.hero .cta{
+  margin-top:34px;
+  display:inline-block;
+  padding:16px 36px;
+  border-radius:40px;
+  background:rgba(255,255,255,.95);
+  color:#000;
+  font-weight:600;
+}
 
-    h2{
-      font-size:2.2rem;
-      margin-bottom:20px;
-    }
+/* ---------- SECTION ---------- */
+section{
+  padding:120px 20px;
+}
 
-    .muted{color:var(--muted)}
+.wrap{
+  max-width:1200px;
+  margin:auto;
+}
 
-    /* SERVICES */
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:20px;
-      margin-top:40px;
-    }
+/* ---------- SPLIT IMAGE ---------- */
+.split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
 
-    .card{
-      background:var(--card);
-      padding:30px;
-      border-radius:16px;
-    }
+.split img{
+  width:100%;
+  height:520px;
+  object-fit:cover;
+  border-radius:28px;
+}
 
-    /* GALLERY */
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:14px;
-      margin-top:40px;
-    }
+.split h2{
+  font-size:2.4rem;
+  margin-bottom:16px;
+}
 
-    .gallery img{
-      width:100%;
-      height:300px;
-      object-fit:cover;
-      border-radius:14px;
-    }
+.split p{
+  color:var(--muted);
+  max-width:460px;
+}
 
-    /* CONTACT */
-    form{
-      max-width:500px;
-      margin-top:30px;
-    }
+/* ---------- FULL BLEED ---------- */
+.full{
+  min-height:90vh;
+  display:flex;
+  align-items:end;
+  background:
+    linear-gradient(to top, rgba(0,0,0,.75), transparent),
+    var(--img) center/cover no-repeat;
+  padding:80px 20px;
+}
 
-    input,textarea{
-      width:100%;
-      padding:14px;
-      margin-bottom:14px;
-      border-radius:10px;
-      border:none;
-      background:#fff;
-      font-size:1rem;
-    }
+.full h2{
+  font-size:2.6rem;
+}
 
-    button{
-      width:100%;
-      padding:14px;
-      border:none;
-      border-radius:30px;
-      background:var(--accent);
-      color:#fff;
-      font-weight:600;
-      font-size:1rem;
-    }
+/* ---------- GALLERY ---------- */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:18px;
+}
 
-    footer{
-      text-align:center;
-      padding:40px 20px;
-      color:var(--muted);
-      font-size:.9rem;
-    }
-  </style>
+.gallery img{
+  width:100%;
+  height:360px;
+  object-fit:cover;
+  border-radius:22px;
+}
+
+/* ---------- CONTACT ---------- */
+form{
+  max-width:480px;
+}
+
+input,textarea{
+  width:100%;
+  padding:14px;
+  margin-bottom:14px;
+  border-radius:14px;
+  border:none;
+  font-size:1rem;
+}
+
+button{
+  width:100%;
+  padding:16px;
+  border-radius:40px;
+  border:none;
+  background:#fff;
+  font-weight:600;
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+  padding:60px 20px;
+  text-align:center;
+  color:var(--muted);
+}
+
+/* ---------- MOBILE ---------- */
+@media(max-width:900px){
+  .split{grid-template-columns:1fr}
+  .split img{height:420px}
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <header class="hero">
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <h1>Tahoe Visuals Studio</h1>
+    <p>Sessions, events, and cinematic adventures by Lake Tahoe — crafted to be felt, not just seen.</p>
+    <a href="#contact" class="cta">Book Your Experience</a>
+  </div>
+</header>
+
+<!-- STORY -->
+<section>
+  <div class="wrap split">
+    <img src="images/family-sunset.jpg" alt="">
     <div>
-      <h1>Tahoe Visuals Studio</h1>
-      <p>Sessions · Events · Adventures by Lake Tahoe</p>
-      <a href="#contact" class="btn">Book a Session</a>
+      <h2>Moments That Feel Like a Film</h2>
+      <p>
+        We don’t just take photos — we guide you through an experience.
+        Calm direction, natural moments, and visuals designed to last decades.
+      </p>
     </div>
-  </header>
+  </div>
+</section>
 
-  <!-- SERVICES -->
-  <section>
-    <h2>What We Do</h2>
-    <p class="muted">High-quality visual experiences designed to capture memories that last.</p>
+<!-- FULL BLEED -->
+<section class="full" style="--img:url('images/kids-snow.jpg')">
+  <div class="wrap">
+    <h2>Families · Couples · Adventures</h2>
+  </div>
+</section>
 
-    <div class="grid">
-      <div class="card">
-        <h3>Photo Sessions</h3>
-        <p class="muted">Couples, families, engagements, lifestyle, and portraits in iconic Tahoe locations.</p>
-      </div>
-
-      <div class="card">
-        <h3>Events</h3>
-        <p class="muted">Private events, celebrations, brand activations, and special moments.</p>
-      </div>
-
-      <div class="card">
-        <h3>Adventures</h3>
-        <p class="muted">Snowboarding, skiing, hiking, drone footage, and cinematic outdoor storytelling.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section>
-    <h2>Gallery</h2>
-    <p class="muted">A glimpse into Tahoe through our lens.</p>
-
+<!-- GALLERY -->
+<section>
+  <div class="wrap">
+    <h2 style="margin-bottom:30px">Tahoe Stories</h2>
     <div class="gallery">
-      <img src="images/family-sunset.jpg" alt="Family walking at sunset">
-      <img src="images/kids-snow.jpg" alt="Kids playing in snow">
-      <img src="images/couple-portrait.jpg" alt="Couple winter portrait">
-      <img src="images/ski-lift.jpg" alt="Ski lift adventure">
-      <img src="images/drone-lake.jpg" alt="Aerial Lake Tahoe">
-      <img src="images/snowboarder.jpg" alt="Snowboard action">
+      <img src="images/couple-portrait.jpg">
+      <img src="images/ski-lift.jpg">
+      <img src="images/drone-lake.jpg">
+      <img src="images/snowboarder.jpg">
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Contact & Booking</h2>
-    <p class="muted">Ask questions or request availability.</p>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap split">
+    <div>
+      <h2>Let’s Plan Something Special</h2>
+      <p class="muted">
+        Tell us your dates, group size, and the kind of experience you want.
+      </p>
+    </div>
 
     <form action="https://formspree.io/f/xlgnjrvl" method="POST">
-      <input type="email" name="email" placeholder="Your email" required />
+      <input type="email" name="email" placeholder="Your email" required>
       <textarea name="message" rows="4" placeholder="Tell us about your session"></textarea>
-      <button type="submit">Send Message</button>
+      <button type="submit">Send Inquiry</button>
     </form>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    © 2026 Tahoe Visuals Studio · sfstudio.llc@gmail.com
-  </footer>
+<footer>
+  © 2026 Tahoe Visuals Studio · sfstudio.llc@gmail.com
+</footer>
 
 </body>
 </html>
