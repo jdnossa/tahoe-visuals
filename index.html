@@ -1,234 +1,456 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Tahoe Visuals Studio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>Tahoe Visuals Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Sessions, events, and cinematic adventures by Lake Tahoe. Premium photo and video experiences." />
 
-<style>
-:root{
-  --bg:#060606;
-  --text:#f5f5f5;
-  --muted:#9ca3af;
-  --accent:#e5e7eb;
-}
+  <style>
+    :root{
+      --bg:#050608;
+      --bg-soft:#0b0d12;
+      --text:#f5f5f5;
+      --muted:#9ca3af;
+      --accent:#e5e7eb;
+      --pill:#1f2933;
+      --card:#10131a;
+    }
 
-*{box-sizing:border-box;margin:0;padding:0}
+    *{box-sizing:border-box;margin:0;padding:0}
 
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Inter",system-ui,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.6;
-}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Inter",system-ui,sans-serif;
+      background:radial-gradient(circle at top,#171b26 0,#050608 45%);
+      color:var(--text);
+      line-height:1.6;
+    }
 
-/* ---------- HERO ---------- */
-.hero{
-  min-height:100vh;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,.3), rgba(0,0,0,.85)),
-    url("images/hero-lake-sunset.jpg") center/cover no-repeat;
-  display:flex;
-  align-items:center;
-  padding:80px 20px;
-}
+    a{text-decoration:none;color:inherit}
 
-.hero-inner{
-  max-width:1100px;
-  margin:auto;
-}
+    /* TOP BAR */
+    .top{
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:20;
+      backdrop-filter:blur(14px);
+      background:rgba(5,6,8,.85);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .top-inner{
+      max-width:1160px;
+      margin:auto;
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:600;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-size:.8rem;
+    }
+    .brand-mark{
+      height:30px;width:30px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.18);
+      background:radial-gradient(circle at 30% 0,#d1d5db,#4b5563);
+    }
+    .brand span{opacity:.7}
 
-.hero h1{
-  font-size:clamp(3rem,6vw,5rem);
-  font-weight:700;
-  letter-spacing:-1px;
-}
+    .nav{
+      display:flex;
+      gap:18px;
+      font-size:.9rem;
+      color:var(--muted);
+    }
+    .nav a{padding:6px 0}
+    .nav a:hover{color:var(--accent)}
 
-.hero p{
-  margin-top:18px;
-  max-width:520px;
-  font-size:1.1rem;
-  color:var(--muted);
-}
+    .nav-cta{
+      padding:8px 16px;
+      border-radius:32px;
+      border:1px solid rgba(229,231,235,.9);
+      background:rgba(229,231,235,.98);
+      color:#020617;
+      font-size:.85rem;
+      font-weight:600;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+    }
 
-.hero .cta{
-  margin-top:34px;
-  display:inline-block;
-  padding:16px 36px;
-  border-radius:40px;
-  background:rgba(255,255,255,.95);
-  color:#000;
-  font-weight:600;
-}
+    /* HERO */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding:110px 18px 80px;
+    }
+    .hero-inner{
+      max-width:1160px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);
+      gap:40px;
+      align-items:center;
+    }
 
-/* ---------- SECTION ---------- */
-section{
-  padding:120px 20px;
-}
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:4px 10px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,.4);
+      background:rgba(15,23,42,.7);
+      color:var(--muted);
+      font-size:.75rem;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+    }
+    .eyebrow-dot{
+      width:7px;height:7px;
+      border-radius:999px;
+      background:#22c55e;
+    }
 
-.wrap{
-  max-width:1200px;
-  margin:auto;
-}
+    .hero h1{
+      margin-top:18px;
+      font-size:clamp(2.7rem,5vw,3.8rem);
+      letter-spacing:-.04em;
+    }
+    .hero p.sub{
+      margin-top:14px;
+      color:var(--muted);
+      max-width:33rem;
+      font-size:.98rem;
+    }
 
-/* ---------- SPLIT IMAGE ---------- */
-.split{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
-  align-items:center;
-}
+    .hero-tags{
+      margin-top:20px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .tag{
+      padding:4px 10px;
+      border-radius:999px;
+      background:var(--pill);
+      border:1px solid rgba(148,163,184,.4);
+      font-size:.75rem;
+      color:var(--muted);
+    }
 
-.split img{
-  width:100%;
-  height:520px;
-  object-fit:cover;
-  border-radius:28px;
-}
+    .hero-cta-row{
+      margin-top:24px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+    .hero-primary{
+      padding:11px 22px;
+      border-radius:999px;
+      border:none;
+      background:#e5e7eb;
+      color:#020617;
+      font-weight:600;
+      font-size:.9rem;
+    }
+    .hero-secondary{
+      padding:9px 18px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,.6);
+      background:rgba(15,23,42,.6);
+      color:var(--muted);
+      font-size:.82rem;
+    }
 
-.split h2{
-  font-size:2.4rem;
-  margin-bottom:16px;
-}
+    .hero-note{
+      margin-top:10px;
+      font-size:.78rem;
+      color:#6b7280;
+    }
 
-.split p{
-  color:var(--muted);
-  max-width:460px;
-}
+    /* HERO SIDE PANEL */
+    .hero-panel{
+      background:radial-gradient(circle at top,#1f2937 0,#020617 70%);
+      border-radius:26px;
+      border:1px solid rgba(148,163,184,.4);
+      padding:18px 18px 16px;
+      box-shadow:0 22px 45px rgba(0,0,0,.7);
+    }
+    .hero-panel-top{
+      height:220px;
+      border-radius:18px;
+      overflow:hidden;
+      background:
+        linear-gradient(to top,rgba(0,0,0,.6),transparent),
+        url("images/hero-lake-sunset.jpg") center/cover no-repeat;
+    }
+    .hero-panel-top-fallback{
+      width:100%;height:100%;
+      background:radial-gradient(circle at 30% 0,#4b5563,#020617);
+    }
+    .hero-panel-meta{
+      margin-top:14px;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      font-size:.75rem;
+      color:var(--muted);
+    }
+    .hero-panel-meta strong{color:var(--accent);font-size:.8rem}
 
-/* ---------- FULL BLEED ---------- */
-.full{
-  min-height:90vh;
-  display:flex;
-  align-items:end;
-  background:
-    linear-gradient(to top, rgba(0,0,0,.75), transparent),
-    var(--img) center/cover no-repeat;
-  padding:80px 20px;
-}
+    /* SECTIONS */
+    section{
+      padding:70px 18px;
+    }
+    .wrap{max-width:1160px;margin:auto;}
 
-.full h2{
-  font-size:2.6rem;
-}
+    section h2{
+      font-size:1.9rem;
+      margin-bottom:8px;
+      letter-spacing:-.02em;
+    }
+    .section-sub{
+      color:var(--muted);
+      font-size:.95rem;
+      max-width:30rem;
+    }
 
-/* ---------- GALLERY ---------- */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:18px;
-}
+    /* SERVICES GRID */
+    .grid{
+      margin-top:30px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:18px;
+    }
+    .card{
+      background:var(--card);
+      border-radius:18px;
+      padding:18px 18px 20px;
+      border:1px solid rgba(31,41,55,.9);
+    }
+    .card h3{font-size:1.05rem;margin-bottom:6px}
+    .card p{font-size:.9rem;color:var(--muted)}
 
-.gallery img{
-  width:100%;
-  height:360px;
-  object-fit:cover;
-  border-radius:22px;
-}
+    /* GALLERY */
+    .gallery{
+      margin-top:26px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:12px;
+    }
+    .gallery img{
+      width:100%;
+      height:260px;
+      object-fit:cover;
+      border-radius:18px;
+      display:block;
+      background:#020617;
+    }
 
-/* ---------- CONTACT ---------- */
-form{
-  max-width:480px;
-}
+    /* CONTACT */
+    .contact-grid{
+      margin-top:26px;
+      display:grid;
+      grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);
+      gap:30px;
+    }
+    form{margin-top:6px}
+    input,textarea{
+      width:100%;
+      padding:12px;
+      border-radius:12px;
+      border:1px solid rgba(148,163,184,.6);
+      background:#020617;
+      color:var(--text);
+      font-size:.9rem;
+      margin-bottom:10px;
+    }
+    textarea{min-height:120px;resize:vertical;}
+    button[type="submit"]{
+      width:100%;
+      margin-top:4px;
+      padding:12px;
+      border-radius:999px;
+      border:none;
+      background:#e5e7eb;
+      color:#020617;
+      font-weight:600;
+      font-size:.9rem;
+    }
 
-input,textarea{
-  width:100%;
-  padding:14px;
-  margin-bottom:14px;
-  border-radius:14px;
-  border:none;
-  font-size:1rem;
-}
+    footer{
+      padding:40px 18px 60px;
+      text-align:center;
+      color:var(--muted);
+      font-size:.82rem;
+    }
 
-button{
-  width:100%;
-  padding:16px;
-  border-radius:40px;
-  border:none;
-  background:#fff;
-  font-weight:600;
-}
-
-/* ---------- FOOTER ---------- */
-footer{
-  padding:60px 20px;
-  text-align:center;
-  color:var(--muted);
-}
-
-/* ---------- MOBILE ---------- */
-@media(max-width:900px){
-  .split{grid-template-columns:1fr}
-  .split img{height:420px}
-}
-</style>
+    /* MOBILE */
+    @media(max-width:900px){
+      .hero-inner{
+        grid-template-columns:1fr;
+      }
+      .hero-panel{
+        margin-top:12px;
+      }
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="hero-inner">
-    <h1>Tahoe Visuals Studio</h1>
-    <p>Sessions, events, and cinematic adventures by Lake Tahoe — crafted to be felt, not just seen.</p>
-    <a href="#contact" class="cta">Book Your Experience</a>
+  <!-- TOP BAR -->
+  <div class="top">
+    <div class="top-inner">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        Tahoe Visuals Studio <span>· Lake Tahoe</span>
+      </div>
+      <div class="nav">
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="nav-cta">Book</a>
+      </div>
+    </div>
   </div>
-</header>
 
-<!-- STORY -->
-<section>
-  <div class="wrap split">
-    <img src="images/family-sunset.jpg" alt="">
-    <div>
-      <h2>Moments That Feel Like a Film</h2>
-      <p>
-        We don’t just take photos — we guide you through an experience.
-        Calm direction, natural moments, and visuals designed to last decades.
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">
+          <div class="eyebrow-dot"></div>
+          Winter Sessions · Tahoe
+        </div>
+
+        <h1>Sessions, events, and adventures by Lake Tahoe.</h1>
+        <p class="sub">
+          Cinematic photo and video experiences in the snow — guided, relaxed, and designed to feel like scenes from a film.
+        </p>
+
+        <div class="hero-tags">
+          <span class="tag">Families</span>
+          <span class="tag">Couples</span>
+          <span class="tag">Adventure</span>
+          <span class="tag">North &amp; South Lake</span>
+        </div>
+
+        <div class="hero-cta-row">
+          <a href="#contact" class="hero-primary">Book a session</a>
+          <a href="#gallery" class="hero-secondary">View recent work</a>
+        </div>
+
+        <div class="hero-note">
+          Limited winter dates · Best light at sunrise + sunset
+        </div>
+      </div>
+
+      <aside class="hero-panel">
+        <div class="hero-panel-top">
+          <!-- If hero-lake-sunset.jpg is not uploaded yet, this gradient still looks good -->
+          <div class="hero-panel-top-fallback"></div>
+        </div>
+        <div class="hero-panel-meta">
+          <div>
+            <strong>Signature Sessions</strong><br/>
+            Families · Couples · Proposals
+          </div>
+          <div>
+            <strong>Coverage</strong><br/>
+            North &amp; South Lake Tahoe
+          </div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <h2>What we offer</h2>
+      <p class="section-sub">
+        Simple, premium options for your time in Tahoe — from quick sessions to cinematic half-day adventures.
       </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Sessions</h3>
+          <p>Families, couples, engagements, and portraits in snow-filled locations that are easy to access and look incredible.</p>
+        </div>
+        <div class="card">
+          <h3>Events</h3>
+          <p>Intimate events, proposals, celebrations, and small gatherings captured with a clean, editorial look.</p>
+        </div>
+        <div class="card">
+          <h3>Adventures</h3>
+          <p>Chairlift rides, snowshoe sunsets, and on-mountain stories with a focus on movement, landscape, and atmosphere.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FULL BLEED -->
-<section class="full" style="--img:url('images/kids-snow.jpg')">
-  <div class="wrap">
-    <h2>Families · Couples · Adventures</h2>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section>
-  <div class="wrap">
-    <h2 style="margin-bottom:30px">Tahoe Stories</h2>
-    <div class="gallery">
-      <img src="images/couple-portrait.jpg">
-      <img src="images/ski-lift.jpg">
-      <img src="images/drone-lake.jpg">
-      <img src="images/snowboarder.jpg">
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="wrap split">
-    <div>
-      <h2>Let’s Plan Something Special</h2>
-      <p class="muted">
-        Tell us your dates, group size, and the kind of experience you want.
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="wrap">
+      <h2>Winter stories in Tahoe</h2>
+      <p class="section-sub">
+        A few frames from recent sessions. Replace these with your own favorite images.
       </p>
+
+      <div class="gallery">
+        <img src="images/family-sunset.jpg" alt="Family walking at Tahoe at sunset">
+        <img src="images/kids-snow.jpg" alt="Kids playing in snow">
+        <img src="images/couple-portrait.jpg" alt="Couple in winter light">
+        <img src="images/ski-lift.jpg" alt="Chairlift and snow scene">
+        <img src="images/drone-lake.jpg" alt="Aerial lake view">
+        <img src="images/snowboarder.jpg" alt="Snowboard adventure">
+      </div>
     </div>
+  </section>
 
-    <form action="https://formspree.io/f/xlgnjrvl" method="POST">
-      <input type="email" name="email" placeholder="Your email" required>
-      <textarea name="message" rows="4" placeholder="Tell us about your session"></textarea>
-      <button type="submit">Send Inquiry</button>
-    </form>
-  </div>
-</section>
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <h2>Contact & booking</h2>
+      <p class="section-sub">
+        Share your dates, who’s coming, and the kind of session or adventure you’re imagining. We’ll follow up with options.
+      </p>
 
-<footer>
-  © 2026 Tahoe Visuals Studio · sfstudio.llc@gmail.com
-</footer>
+      <div class="contact-grid">
+        <div>
+          <p class="muted">
+            Typical response time: within 24 hours.<br/>
+            Best for: families, couples, proposals, small groups, and winter adventures.
+          </p>
+        </div>
+
+        <form action="https://formspree.io/f/xlgnjrvl" method="POST">
+          <input type="email" name="email" placeholder="Your email" required>
+          <input type="text" name="dates" placeholder="Preferred dates / flexibility">
+          <input type="text" name="session" placeholder="Session type (family, couple, event, adventure)">
+          <textarea name="message" rows="4" placeholder="Tell us about your trip, group size, and what you’re hoping to capture."></textarea>
+          <button type="submit">Send inquiry</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Tahoe Visuals Studio · sfstudio.llc@gmail.com · Lake Tahoe
+  </footer>
 
 </body>
 </html>
