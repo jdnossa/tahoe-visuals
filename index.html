@@ -4,24 +4,27 @@
   <meta charset="UTF-8" />
   <title>Lake Tahoe Visuals Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Lake Tahoe Visuals Studio — luxurious winter photo sessions, events, and adventures around Lake Tahoe." />
+  <meta name="description" content="Lake Tahoe Visuals Studio — luxurious winter photo sessions, events, and adventures around Lake Tahoe with professional editing included." />
 
-  <!-- Optional luxury fonts -->
+  <!-- Luxury fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#050608;
-      --bg-soft:#0b0f1a;
+      --bg:#050509;
+      --bg-alt:#0b0e16;
       --ink:#f9fafb;
       --muted:#9ca3af;
-      --line:#1f2937;
-      --accent:#fbbf24; /* golden */
-      --accent-soft:rgba(251,191,36,.1);
+      --line:#1f2933;
+      --accent:#fbbf24; /* gold */
+      --accent-soft:rgba(251,191,36,.12);
       --pill:#111827;
       --card:#050814;
+      --radius-lg:28px;
+      --radius:20px;
+      --shadow-big:0 30px 80px rgba(0,0,0,.7);
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -29,9 +32,9 @@
     body{
       font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at 0% 0%, #111827 0, transparent 45%),
-        radial-gradient(circle at 100% 0%, #020617 0, transparent 40%),
-        linear-gradient(180deg,#020617,#020617 40%,#020617 100%);
+        radial-gradient(circle at 0% 0%, #111827 0, transparent 48%),
+        radial-gradient(circle at 100% 0%, #020617 0, transparent 38%),
+        linear-gradient(180deg,#020617,#050509 45%,#020617 100%);
       color:var(--ink);
       line-height:1.6;
       min-height:100vh;
@@ -45,17 +48,17 @@
       top:0;left:0;right:0;
       z-index:40;
       backdrop-filter:blur(16px);
-      background:rgba(5,6,8,.88);
-      border-bottom:1px solid rgba(148,163,184,.3);
+      background:linear-gradient(to bottom,rgba(5,5,11,.9),rgba(5,5,11,.85),rgba(5,5,11,.6));
+      border-bottom:1px solid rgba(148,163,184,.25);
     }
     .top-inner{
-      max-width:1160px;
+      max-width:1180px;
       margin:auto;
       padding:10px 18px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
+      gap:16px;
     }
     .brand{
       display:flex;
@@ -63,7 +66,7 @@
       gap:10px;
     }
     .brand img{
-      height:28px;
+      height:26px;
       width:auto;
       display:block;
     }
@@ -88,7 +91,7 @@
     .nav-cta{
       padding:7px 14px;
       border-radius:999px;
-      border:1px solid rgba(248,250,252,.7);
+      border:1px solid rgba(248,250,252,.75);
       background:rgba(15,23,42,.95);
       color:var(--ink);
       font-size:.72rem;
@@ -97,37 +100,40 @@
     }
 
     main{
-      max-width:1160px;
+      max-width:1180px;
       margin:0 auto;
-      padding:86px 18px 70px;
+      padding:90px 18px 72px;
     }
 
     /* HERO */
     .hero{
-      position:relative;
-      margin-top:22px;
-      border-radius:32px;
+      margin-top:24px;
+      border-radius:var(--radius-lg);
       overflow:hidden;
+      position:relative;
+      background:
+        linear-gradient(120deg,rgba(5,5,11,.96),rgba(5,5,11,.94)),
+        url("images/hero-lake-sunset.jpg") center/cover no-repeat;
+      box-shadow:var(--shadow-big);
       min-height:78vh;
       display:flex;
       align-items:stretch;
-      background:
-        linear-gradient(135deg,rgba(15,23,42,.9),rgba(3,7,18,.9)),
-        url("images/hero-lake-sunset.jpg") center/cover no-repeat;
     }
     .hero-overlay{
       position:absolute;
       inset:0;
       background:
-        radial-gradient(circle at top left, rgba(251,191,36,.12), transparent 60%),
-        linear-gradient(120deg, rgba(15,23,42,.96), rgba(15,23,42,.7), rgba(3,7,18,.98));
+        radial-gradient(circle at top left,rgba(251,191,36,.22),transparent 55%),
+        radial-gradient(circle at bottom right,rgba(15,23,42,.9),rgba(15,23,42,.95));
+      mix-blend-mode:screen;
+      opacity:.9;
     }
     .hero-inner{
       position:relative;
       z-index:2;
-      padding:32px 32px 32px;
+      padding:30px 30px 30px;
       display:grid;
-      grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
+      grid-template-columns:minmax(0,1.15fr) minmax(0,.9fr);
       gap:30px;
       align-items:center;
       width:100%;
@@ -136,8 +142,7 @@
     .hero-logo{
       height:60px;
       width:auto;
-      margin-bottom:20px;
-      display:block;
+      margin-bottom:18px;
     }
 
     .eyebrow{
@@ -160,18 +165,17 @@
     }
 
     .hero-title{
-      font-family:"Playfair Display", serif;
+      font-family:"Playfair Display",serif;
       margin-top:18px;
       font-size:clamp(2.6rem,4.7vw,3.6rem);
       letter-spacing:-.04em;
     }
     .hero-copy{
       margin-top:14px;
-      max-width:34rem;
+      max-width:35rem;
       color:var(--muted);
       font-size:.98rem;
     }
-
     .hero-tags{
       margin-top:18px;
       display:flex;
@@ -183,7 +187,7 @@
       padding:4px 11px;
       border-radius:999px;
       border:1px solid rgba(148,163,184,.45);
-      background:rgba(15,23,42,.9);
+      background:rgba(15,23,42,.85);
       color:var(--muted);
     }
 
@@ -220,62 +224,60 @@
       color:var(--muted);
     }
 
-    /* HERO SIDE PANEL */
+    /* HERO SIDE STACK */
     .hero-side{
       height:100%;
       display:flex;
-      align-items:stretch;
+      align-items:center;
+      justify-content:flex-end;
     }
-    .hero-card{
-      margin-left:auto;
-      width:100%;
-      max-width:360px;
-      border-radius:26px;
-      overflow:hidden;
-      border:1px solid rgba(148,163,184,.5);
-      background:radial-gradient(circle at top,#020617,#020617);
-      box-shadow:0 28px 60px rgba(15,23,42,.9);
+    .hero-stack{
       position:relative;
+      width:100%;
+      max-width:380px;
+      height:310px;
     }
-    .hero-photo{
-      height:220px;
+    .hero-stack-card{
+      position:absolute;
+      inset:0;
+      border-radius:24px;
+      border:1px solid rgba(148,163,184,.5);
+      overflow:hidden;
+      background:#020617;
+      box-shadow:var(--shadow-big);
+    }
+    .hero-stack-main{
       background:
         linear-gradient(to top,rgba(15,23,42,.85),transparent 55%),
         url("images/family-sunset.jpg") center/cover no-repeat;
     }
-    .hero-card-inner{
-      padding:14px 16px 16px;
-      font-size:.8rem;
+    .hero-stack-small{
+      inset:auto 24px -40px auto;
+      width:54%;
+      height:52%;
+      border-radius:20px;
+      background:
+        linear-gradient(to top,rgba(15,23,42,.9),transparent 50%),
+        url("images/couple-portrait.jpg") center/cover no-repeat;
+      border:1px solid rgba(251,191,36,.6);
     }
-    .hero-card-inner span.label{
-      text-transform:uppercase;
-      letter-spacing:.2em;
-      font-size:.72rem;
-      color:var(--muted);
-    }
-    .hero-card-inner h3{
-      margin-top:4px;
-      font-size:.95rem;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-    }
-    .hero-card-inner p{
-      margin-top:6px;
-      color:var(--muted);
-      font-size:.78rem;
-    }
-    .hero-meta-row{
-      margin-top:10px;
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
+    .hero-stack-label{
+      position:absolute;
+      left:16px;
+      bottom:14px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(15,23,42,.9);
+      border:1px solid rgba(148,163,184,.55);
       font-size:.74rem;
+      text-transform:uppercase;
+      letter-spacing:.16em;
       color:var(--muted);
     }
 
-    /* SECTION HEAD */
+    /* SECTION HEADER */
     .section-head{
-      margin-top:42px;
+      margin-top:46px;
       margin-bottom:14px;
       display:flex;
       justify-content:space-between;
@@ -293,19 +295,19 @@
       color:var(--muted);
     }
 
-    /* WORK ROWS */
+    /* WORK */
     .projects{
       display:grid;
       gap:18px;
     }
     .project{
       display:grid;
-      grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);
+      grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
       gap:18px;
       padding:14px;
-      border-radius:22px;
-      background:radial-gradient(circle at top left,rgba(15,23,42,.96),rgba(15,23,42,.9));
-      border:1px solid rgba(31,41,55,.9);
+      border-radius:var(--radius);
+      background:radial-gradient(circle at top left,rgba(15,23,42,.96),rgba(15,23,42,.92));
+      border:1px solid rgba(31,41,55,.95);
     }
     .project-visual{
       border-radius:18px;
@@ -338,7 +340,7 @@
 
     /* GALLERY STRIP */
     .gallery-strip{
-      margin-top:14px;
+      margin-top:16px;
       display:grid;
       grid-template-columns:repeat(4,minmax(0,1fr));
       gap:10px;
@@ -350,17 +352,23 @@
       background-position:center;
       height:160px;
       background-color:#020617;
+      overflow:hidden;
+    }
+    .gallery-tile::after{
+      content:"";
+      position:absolute;
+      inset:0;
     }
 
     /* PACKAGES */
     .packages{
-      margin-top:52px;
-      padding:22px 20px 22px;
-      border-radius:26px;
+      margin-top:54px;
+      padding:22px 20px 24px;
+      border-radius:var(--radius-lg);
       background:
-        radial-gradient(130% 200% at 100% 0%,rgba(251,191,36,.2),transparent 55%),
-        rgba(15,23,42,.96);
-      border:1px solid rgba(148,163,184,.6);
+        radial-gradient(130% 200% at 100% 0%,rgba(251,191,36,.22),transparent 55%),
+        rgba(5,8,22,.98);
+      border:1px solid rgba(148,163,184,.7);
     }
     .packages h2{
       font-size:.9rem;
@@ -381,9 +389,9 @@
       gap:16px;
     }
     .pkg-card{
-      background:rgba(5,8,20,.98);
+      background:var(--card);
       border-radius:18px;
-      border:1px solid rgba(55,65,81,.9);
+      border:1px solid rgba(55,65,81,.95);
       padding:14px 14px 16px;
       font-size:.86rem;
       position:relative;
@@ -421,7 +429,7 @@
 
     /* CONTACT */
     .contact{
-      margin-top:52px;
+      margin-top:54px;
       display:grid;
       grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);
       gap:24px;
@@ -448,7 +456,7 @@
       width:100%;
       padding:10px 11px;
       border-radius:10px;
-      border:1px solid rgba(55,65,81,.9);
+      border:1px solid rgba(55,65,81,.95);
       font-size:.9rem;
       margin-bottom:10px;
       background:#020617;
@@ -485,14 +493,14 @@
       .hero-side{
         order:-1;
       }
-      .hero-card{
-        margin:0 auto 6px auto;
-      }
-      .gallery-strip{
-        grid-template-columns:repeat(2,minmax(0,1fr));
+      .hero-stack{
+        margin-bottom:4px;
       }
       .project{
         grid-template-columns:1fr;
+      }
+      .gallery-strip{
+        grid-template-columns:repeat(2,minmax(0,1fr));
       }
       .contact{
         grid-template-columns:1fr;
@@ -503,7 +511,7 @@
       .hero-title{font-size:2.2rem;}
       .hero-logo{height:52px;}
       .hero{
-        border-radius:24px;
+        border-radius:22px;
       }
     }
   </style>
@@ -540,14 +548,14 @@
           </div>
           <h1 class="hero-title">Sessions, events, and adventures in the snow.</h1>
           <p class="hero-copy">
-            Luxurious, cinematic winter imagery in and around Lake Tahoe. Calm direction, natural moments, and a gallery
+            Luxurious, cinematic winter imagery across North and South Lake Tahoe. Calm, guided sessions and a finished gallery
             that feels like stills from a film.
           </p>
           <div class="hero-tags">
             <span class="tag">Families &amp; couples</span>
             <span class="tag">Adventures</span>
-            <span class="tag">North &amp; South Lake</span>
             <span class="tag">Photo + video</span>
+            <span class="tag">North &amp; South Lake</span>
           </div>
           <div class="hero-cta-row">
             <a href="#contact" class="hero-primary">Book a session</a>
@@ -559,19 +567,10 @@
         </div>
 
         <div class="hero-side">
-          <div class="hero-card">
-            <div class="hero-photo"></div>
-            <div class="hero-card-inner">
-              <div>
-                <span class="label">Featured · Family Session</span>
-                <h3>Lake walk at sunset</h3>
-                <p>Soft light, lake air, and a slow walk along the shoreline in winter.</p>
-              </div>
-              <div class="hero-meta-row">
-                <span>Often booked as a Snow Mini or Signature Tahoe Session.</span>
-                <span>North &amp; South Lake</span>
-              </div>
-            </div>
+          <div class="hero-stack">
+            <div class="hero-stack-card hero-stack-main"></div>
+            <div class="hero-stack-card hero-stack-small"></div>
+            <div class="hero-stack-label">Recent winter gallery · 2024–2025</div>
           </div>
         </div>
       </div>
@@ -590,7 +589,7 @@
           <div>
             <span class="label">Family Session</span>
             <h3>Lake walk at sunset</h3>
-            <p>Winter shoreline, soft color, and a mix of relaxed portraits and in-between moments as the light drops.</p>
+            <p>Winter shoreline, soft color, and a mix of relaxed portraits and in-between moments as the light drops behind the mountains.</p>
           </div>
           <p>Most guests book this as a <strong>Snow Mini</strong> or <strong>Signature Tahoe Session</strong>.</p>
         </div>
@@ -602,21 +601,9 @@
           <div>
             <span class="label">Sessions</span>
             <h3>Snow play</h3>
-            <p>Kids being kids in fresh snow—runs, throws, and quiet pauses between it all.</p>
+            <p>Kids being kids in fresh snow—runs, throws, and quiet pauses between the chaos.</p>
           </div>
           <p>Works beautifully as a one-hour <strong>Snow Mini</strong> for families.</p>
-        </div>
-      </article>
-
-      <article class="project">
-        <div class="project-visual" style="background-image:url('images/snowboarder.jpg');"></div>
-        <div class="project-meta">
-          <div>
-            <span class="label">Adventures</span>
-            <h3>On the mountain</h3>
-            <p>Chairlifts, runs, and the small in-between details that make a winter day feel unforgettable.</p>
-          </div>
-          <p>Usually captured as a <strong>Story Session</strong> with 2 hours of coverage.</p>
         </div>
       </article>
 
@@ -629,6 +616,18 @@
             <p>Couples and families in clean framing with just enough of the mountains and lifts in the background.</p>
           </div>
           <p>Fits into both <strong>Snow Mini</strong> and <strong>Signature Tahoe Session</strong> formats.</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-visual" style="background-image:url('images/snowboarder.jpg');"></div>
+        <div class="project-meta">
+          <div>
+            <span class="label">Adventures</span>
+            <h3>On the mountain</h3>
+            <p>Chairlifts, runs, and the small in-between details that make a winter day feel unforgettable.</p>
+          </div>
+          <p>Usually captured as a <strong>Story Session</strong> with 2 hours of coverage.</p>
         </div>
       </article>
     </section>
@@ -645,11 +644,12 @@
       <div class="gallery-tile" style="background-image:url('images/drone-lake.jpg');"></div>
     </section>
 
-    <!-- SESSIONS & PACKAGES -->
+    <!-- SESSIONS & PACKAGES (keep services + prices) -->
     <section class="packages" id="sessions">
       <h2>Sessions &amp; packages</h2>
       <p class="packages-intro">
-        All sessions include professional editing, a curated online gallery, and high-resolution downloads ready to print and share.
+        All sessions include professional editing, a curated online gallery, and high-resolution downloads
+        ready to print and share.
       </p>
 
       <div class="packages-grid">
