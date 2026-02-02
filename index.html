@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Tahoe Visuals Studio</title>
+  <title>Lake Tahoe Visuals Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Sessions, events, and cinematic adventures by Lake Tahoe. Premium photo and video experiences." />
 
@@ -50,18 +50,12 @@
       display:flex;
       align-items:center;
       gap:10px;
-      font-weight:600;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      font-size:.8rem;
     }
-    .brand-mark{
-      height:30px;width:30px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.18);
-      background:radial-gradient(circle at 30% 0,#d1d5db,#4b5563);
+    .brand-logo{
+      height:32px;
+      width:auto;
+      display:block;
     }
-    .brand span{opacity:.7}
 
     .nav{
       display:flex;
@@ -90,12 +84,15 @@
       display:flex;
       align-items:center;
       padding:110px 18px 80px;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.9)),
+        url("images/hero-lake-sunset.jpg") center/cover no-repeat;
     }
     .hero-inner{
       max-width:1160px;
       margin:auto;
       display:grid;
-      grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);
+      grid-template-columns:minmax(0,1.2fr) minmax(0,.9fr);
       gap:40px;
       align-items:center;
     }
@@ -174,7 +171,8 @@
     .hero-note{
       margin-top:10px;
       font-size:.78rem;
-      color:#6b7280;
+      color:#e5e7eb;
+      opacity:.82;
     }
 
     /* HERO SIDE PANEL */
@@ -190,12 +188,8 @@
       border-radius:18px;
       overflow:hidden;
       background:
-        linear-gradient(to top,rgba(0,0,0,.6),transparent),
-        url("images/hero-lake-sunset.jpg") center/cover no-repeat;
-    }
-    .hero-panel-top-fallback{
-      width:100%;height:100%;
-      background:radial-gradient(circle at 30% 0,#4b5563,#020617);
+        linear-gradient(to top,rgba(0,0,0,.5),transparent),
+        url("images/family-sunset.jpg") center/cover no-repeat;
     }
     .hero-panel-meta{
       margin-top:14px;
@@ -305,6 +299,9 @@
       .contact-grid{
         grid-template-columns:1fr;
       }
+      .nav{
+        display:none;
+      }
     }
   </style>
 </head>
@@ -315,8 +312,7 @@
   <div class="top">
     <div class="top-inner">
       <div class="brand">
-        <div class="brand-mark"></div>
-        Tahoe Visuals Studio <span>· Lake Tahoe</span>
+        <img class="brand-logo" src="images/logo-lake-tahoe.png" alt="Lake Tahoe Visuals Studio logo">
       </div>
       <div class="nav">
         <a href="#services">Services</a>
@@ -333,18 +329,18 @@
       <div>
         <div class="eyebrow">
           <div class="eyebrow-dot"></div>
-          Winter Sessions · Tahoe
+          Winter sessions · Lake Tahoe
         </div>
 
         <h1>Sessions, events, and adventures by Lake Tahoe.</h1>
         <p class="sub">
-          Cinematic photo and video experiences in the snow — guided, relaxed, and designed to feel like scenes from a film.
+          Cinematic photo and video experiences in the snow — relaxed, guided, and designed to feel like scenes from a film.
         </p>
 
         <div class="hero-tags">
           <span class="tag">Families</span>
           <span class="tag">Couples</span>
-          <span class="tag">Adventure</span>
+          <span class="tag">Adventures</span>
           <span class="tag">North &amp; South Lake</span>
         </div>
 
@@ -354,15 +350,12 @@
         </div>
 
         <div class="hero-note">
-          Limited winter dates · Best light at sunrise + sunset
+          Limited winter dates · Best light at sunrise and sunset.
         </div>
       </div>
 
       <aside class="hero-panel">
-        <div class="hero-panel-top">
-          <!-- If hero-lake-sunset.jpg is not uploaded yet, this gradient still looks good -->
-          <div class="hero-panel-top-fallback"></div>
-        </div>
+        <div class="hero-panel-top"></div>
         <div class="hero-panel-meta">
           <div>
             <strong>Signature Sessions</strong><br/>
@@ -431,7 +424,7 @@
 
       <div class="contact-grid">
         <div>
-          <p class="muted">
+          <p class="section-sub">
             Typical response time: within 24 hours.<br/>
             Best for: families, couples, proposals, small groups, and winter adventures.
           </p>
@@ -449,7 +442,7 @@
   </section>
 
   <footer>
-    © 2026 Tahoe Visuals Studio · sfstudio.llc@gmail.com · Lake Tahoe
+    © 2026 Lake Tahoe Visuals Studio · sfstudio.llc@gmail.com · Lake Tahoe, California.
   </footer>
 
 </body>
