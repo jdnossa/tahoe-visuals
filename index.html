@@ -116,7 +116,7 @@
       border:1px solid rgba(148,163,184,.5);
     }
 
-    /* PROJECT STRIPS */
+    /* SECTION HEAD */
     .section-head{
       padding-top:26px;
       padding-bottom:6px;
@@ -130,6 +130,7 @@
       color:var(--muted);
     }
 
+    /* PROJECT STRIPS */
     .projects{
       padding-top:18px;
     }
@@ -174,6 +175,58 @@
       font-size:.76rem;
       text-align:right;
       white-space:nowrap;
+    }
+
+    /* PACKAGES / SESSIONS */
+    .packages{
+      padding-top:40px;
+      margin-top:40px;
+      border-top:1px solid var(--line);
+    }
+    .packages h2{
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      color:var(--muted);
+      margin-bottom:10px;
+    }
+    .packages-intro{
+      max-width:34rem;
+      font-size:.94rem;
+      color:var(--muted);
+      margin-bottom:22px;
+    }
+    .packages-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;
+    }
+    .pkg-card{
+      background:#050814;
+      border-radius:16px;
+      border:1px solid var(--line);
+      padding:14px 14px 16px;
+      font-size:.88rem;
+    }
+    .pkg-name{
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:.75rem;
+      color:var(--muted);
+    }
+    .pkg-title{
+      margin-top:4px;
+      font-weight:500;
+    }
+    .pkg-meta{
+      margin-top:6px;
+      color:var(--muted);
+      font-size:.8rem;
+    }
+    .pkg-price{
+      margin-top:10px;
+      font-size:.86rem;
+      color:var(--ink);
     }
 
     /* CONTACT / ABOUT */
@@ -242,6 +295,9 @@
         align-items:flex-start;
       }
       .project-right{text-align:left;}
+      .packages-grid{
+        grid-template-columns:1fr;
+      }
     }
   </style>
 </head>
@@ -290,7 +346,7 @@
     <section class="projects">
 
       <!-- Project 1: Family Session (hero lake sunset) -->
-      <article class="project" id="sessions">
+      <article class="project" id="session-family">
         <div class="project-visual" style="background-image:url('images/hero-lake-sunset.jpg');"></div>
         <div class="project-meta">
           <div class="project-left">
@@ -345,7 +401,7 @@
         </div>
       </article>
 
-      <!-- Project 5: Extra family / portrait -->
+      <!-- Project 5: Extra family / portrait (lift photo) -->
       <article class="project">
         <div class="project-visual" style="background-image:url('images/ski-lift.jpg');"></div>
         <div class="project-meta">
@@ -361,12 +417,55 @@
 
     </section>
 
+    <!-- SESSIONS & PACKAGES -->
+    <section class="packages" id="sessions">
+      <h2>Sessions &amp; packages</h2>
+      <p class="packages-intro">
+        Simple options that cover most trips to Tahoe. Every booking includes guided posing, candid moments, professional editing, and a private online gallery.
+      </p>
+
+      <div class="packages-grid">
+        <div class="pkg-card">
+          <div class="pkg-name">Snow Mini</div>
+          <div class="pkg-title">Quick winter session</div>
+          <div class="pkg-meta">
+            30–40 minutes · 1 nearby location · ideal for couples &amp; small families.
+          </div>
+          <div class="pkg-price">
+            From $199–$299 · 15–25 edited images
+          </div>
+        </div>
+
+        <div class="pkg-card">
+          <div class="pkg-name">Signature Tahoe Session</div>
+          <div class="pkg-title">Most popular</div>
+          <div class="pkg-meta">
+            60–75 minutes · 1–2 locations · perfect for families, couples, or engagements.
+          </div>
+          <div class="pkg-price">
+            From $399–$699 · 35–60 edited images
+          </div>
+        </div>
+
+        <div class="pkg-card">
+          <div class="pkg-name">Story Session</div>
+          <div class="pkg-title">Cinematic half-day</div>
+          <div class="pkg-meta">
+            2 hours · multiple looks &amp; locations · best for proposals, anniversaries, or adventure days.
+          </div>
+          <div class="pkg-price">
+            From $899–$1,800 · 80–120 edited images + short highlight reel
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CONTACT / BOOKING -->
     <section id="contact" class="contact">
       <h2>Contact &amp; booking</h2>
       <p>
         Tell us your dates, who’s coming, and the kind of session or adventure you’re imagining.
-        We’ll reply with timing, location suggestions, and options that fit.
+        We’ll reply with timing, location suggestions, and package recommendations.
       </p>
 
       <form action="https://formspree.io/f/xlgnjrvl" method="POST">
