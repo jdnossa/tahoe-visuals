@@ -85,8 +85,14 @@
       padding-bottom:40px;
       border-bottom:1px solid var(--line);
     }
+    .hero-logo{
+      height:56px;
+      width:auto;
+      margin-bottom:18px;
+      display:block;
+    }
     .hero h1{
-      font-size:2.5rem;
+      font-size:2.3rem;
       letter-spacing:-.03em;
       margin-bottom:10px;
     }
@@ -229,7 +235,7 @@
 
     @media(max-width:640px){
       .nav{display:none;}
-      .hero h1{font-size:2.1rem;}
+      .hero h1{font-size:1.9rem;}
       .project-visual{height:44vh;}
       .project-meta{
         flex-direction:column;
@@ -260,8 +266,9 @@
   </header>
 
   <main>
-    <!-- HERO TEXT -->
+    <!-- HERO TEXT WITH BIG LOGO -->
     <section class="hero" id="about">
+      <img src="images/logo-lake-tahoe.png" alt="Lake Tahoe Visuals Studio" class="hero-logo">
       <h1>Sessions, events, and adventures by Lake Tahoe.</h1>
       <p>
         Clean, cinematic winter imagery anchored in snow, light, and atmosphere.
@@ -338,7 +345,7 @@
         </div>
       </article>
 
-      <!-- Project 5: Optional extra family / portrait -->
+      <!-- Project 5: Extra family / portrait -->
       <article class="project">
         <div class="project-visual" style="background-image:url('images/family-sunset.jpg');"></div>
         <div class="project-meta">
