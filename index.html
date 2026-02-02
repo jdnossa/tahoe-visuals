@@ -2,135 +2,251 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Lake Tahoe Visuals Studio</title>
+  <title>Lake Tahoe Visuals Studio — Luxury Winter Photography</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Lake Tahoe Visuals Studio — luxurious winter photo sessions, events, and adventures around Lake Tahoe with professional editing included." />
+  <meta name="description" content="Luxury winter photo sessions, events, and adventure coverage across North and South Lake Tahoe. Calm, guided direction. Film-still editing. Request to book — management approval required." />
+  <meta name="theme-color" content="#050509" />
+
+  <!-- Canonical (set your real domain) -->
+  <link rel="canonical" href="https://tahoevisualsstudio.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Lake Tahoe Visuals Studio — Luxury Winter Photography" />
+  <meta property="og:description" content="Cinematic winter sessions, events, and adventure coverage across Lake Tahoe. Calm, guided direction. Film-still editing. Request to book — management approval required." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tahoevisualsstudio.com/" />
+  <meta property="og:image" content="images/og-cover.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Lake Tahoe Visuals Studio — Luxury Winter Photography" />
+  <meta name="twitter:description" content="Luxury winter sessions across North & South Lake Tahoe. Request to book — management approval required." />
+  <meta name="twitter:image" content="images/og-cover.jpg" />
 
   <!-- Luxury fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- LocalBusiness JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Lake Tahoe Visuals Studio",
+    "areaServed":["North Lake Tahoe","South Lake Tahoe"],
+    "email":"sfstudio.llc@gmail.com",
+    "url":"https://tahoevisualsstudio.com/",
+    "image":"https://tahoevisualsstudio.com/images/og-cover.jpg",
+    "description":"Luxury winter photography sessions, events, and adventure coverage across Lake Tahoe. Calm, guided direction and a finished gallery that feels like stills from a film."
+  }
+  </script>
+
   <style>
     :root{
       --bg:#050509;
-      --bg-alt:#0b0e16;
+      --bg2:#020617;
+      --panel:#070a14;
+      --panel2:#0b1020;
       --ink:#f9fafb;
-      --muted:#9ca3af;
-      --line:#1f2933;
-      --accent:#fbbf24; /* gold */
-      --accent-soft:rgba(251,191,36,.12);
-      --pill:#111827;
-      --card:#050814;
-      --radius-lg:28px;
-      --radius:20px;
-      --shadow-big:0 30px 80px rgba(0,0,0,.7);
+      --muted:#a3aab7;
+      --muted2:#778199;
+      --line:rgba(148,163,184,.22);
+      --line2:rgba(148,163,184,.35);
+      --gold:#fbbf24;
+      --gold2:#fde68a;
+      --goldGlow:rgba(251,191,36,.16);
+      --radius-xl:28px;
+      --radius-lg:22px;
+      --radius:18px;
+      --shadow:0 30px 80px rgba(0,0,0,.65);
+      --shadow2:0 18px 44px rgba(0,0,0,.55);
+      --max:1180px;
+
+      --h1:clamp(2.45rem,4.8vw,3.7rem);
+      --h2:clamp(1.25rem,2vw,1.65rem);
+      --p:clamp(.98rem,1.1vw,1.04rem);
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
-
+    html{scroll-behavior:smooth}
     body{
       font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at 0% 0%, #111827 0, transparent 48%),
-        radial-gradient(circle at 100% 0%, #020617 0, transparent 38%),
-        linear-gradient(180deg,#020617,#050509 45%,#020617 100%);
+        radial-gradient(circle at 0% 0%, #111827 0, transparent 46%),
+        radial-gradient(circle at 100% 0%, #020617 0, transparent 42%),
+        linear-gradient(180deg,var(--bg2),var(--bg) 45%,var(--bg2) 100%);
       color:var(--ink);
-      line-height:1.6;
+      line-height:1.55;
       min-height:100vh;
+      overflow-x:hidden;
     }
-
     a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .sr-only{
+      position:absolute; width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;
+    }
+    .skip{
+      position:absolute; left:-999px; top:14px;
+      background:var(--panel2);
+      border:1px solid var(--line2);
+      color:var(--ink);
+      padding:10px 14px;
+      border-radius:999px;
+      z-index:999;
+    }
+    .skip:focus{left:14px}
 
-    /* TOP NAV */
+    /* Top nav */
     .top{
-      position:fixed;
-      top:0;left:0;right:0;
-      z-index:40;
+      position:fixed; top:0; left:0; right:0;
+      z-index:50;
       backdrop-filter:blur(16px);
-      background:linear-gradient(to bottom,rgba(5,5,11,.9),rgba(5,5,11,.85),rgba(5,5,11,.6));
-      border-bottom:1px solid rgba(148,163,184,.25);
+      background:linear-gradient(to bottom,rgba(5,5,11,.92),rgba(5,5,11,.86),rgba(5,5,11,.55));
+      border-bottom:1px solid var(--line);
     }
     .top-inner{
-      max-width:1180px;
+      max-width:var(--max);
       margin:auto;
       padding:10px 18px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:16px;
+      gap:14px;
     }
     .brand{
       display:flex;
       align-items:center;
       gap:10px;
+      min-width:220px;
     }
     .brand img{
-      height:26px;
+      height:28px;
       width:auto;
-      display:block;
+      border-radius:10px;
     }
-    .brand span{
-      font-size:.7rem;
+    .brand .name{
+      display:flex; flex-direction:column; gap:0;
+      line-height:1.1;
+    }
+    .brand .name strong{
+      font-size:.85rem;
+      letter-spacing:.04em;
+      font-weight:600;
+    }
+    .brand .name span{
+      font-size:.66rem;
       text-transform:uppercase;
       letter-spacing:.18em;
-      color:var(--muted);
+      color:var(--muted2);
       white-space:nowrap;
     }
+
     .nav{
       display:flex;
       gap:18px;
-      font-size:.75rem;
+      font-size:.74rem;
       text-transform:uppercase;
       letter-spacing:.16em;
       color:var(--muted);
+      align-items:center;
     }
-    .nav a{padding:4px 0;}
-    .nav a:hover{color:var(--accent);}
+    .nav a{padding:6px 0; position:relative}
+    .nav a:hover{color:var(--gold)}
+    .nav a.active::after{
+      content:"";
+      position:absolute; left:0; right:0; bottom:-10px;
+      height:2px;
+      background:linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity:.9;
+    }
 
     .nav-cta{
-      padding:7px 14px;
+      padding:8px 14px;
       border-radius:999px;
-      border:1px solid rgba(248,250,252,.75);
-      background:rgba(15,23,42,.95);
+      border:1px solid rgba(248,250,252,.78);
+      background:rgba(15,23,42,.92);
       color:var(--ink);
       font-size:.72rem;
       text-transform:uppercase;
       letter-spacing:.16em;
+      transition:transform .18s ease, border-color .18s ease;
+    }
+    .nav-cta:hover{border-color:rgba(251,191,36,.85); transform:translateY(-1px)}
+
+    /* Mobile menu */
+    .menu-btn{
+      display:none;
+      border:1px solid var(--line2);
+      background:rgba(15,23,42,.72);
+      color:var(--ink);
+      border-radius:12px;
+      padding:10px 12px;
+      cursor:pointer;
+    }
+    .mobile-drawer{
+      display:none;
+      position:fixed;
+      inset:56px 12px auto 12px;
+      background:rgba(5,8,22,.92);
+      border:1px solid var(--line2);
+      border-radius:18px;
+      box-shadow:var(--shadow2);
+      padding:12px;
+      z-index:55;
+    }
+    .mobile-drawer a{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:12px 12px;
+      border-radius:14px;
+      color:var(--muted);
+      border:1px solid transparent;
+      font-size:.82rem;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+    }
+    .mobile-drawer a:hover{
+      color:var(--ink);
+      border-color:var(--line2);
+      background:rgba(2,6,23,.55);
     }
 
     main{
-      max-width:1180px;
+      max-width:var(--max);
       margin:0 auto;
-      padding:90px 18px 72px;
+      padding:92px 18px 76px;
     }
 
-    /* HERO */
+    /* Hero */
     .hero{
-      margin-top:24px;
-      border-radius:var(--radius-lg);
+      margin-top:20px;
+      border-radius:var(--radius-xl);
       overflow:hidden;
       position:relative;
       background:
-        linear-gradient(120deg,rgba(5,5,11,.96),rgba(5,5,11,.94)),
+        linear-gradient(120deg,rgba(5,5,11,.965),rgba(5,5,11,.94)),
         url("images/hero-lake-sunset.jpg") center/cover no-repeat;
-      box-shadow:var(--shadow-big);
+      box-shadow:var(--shadow);
       min-height:78vh;
       display:flex;
       align-items:stretch;
+      isolation:isolate;
     }
-    .hero-overlay{
-      position:absolute;
-      inset:0;
+    .hero::before{
+      content:"";
+      position:absolute; inset:-2px;
       background:
-        radial-gradient(circle at top left,rgba(251,191,36,.22),transparent 55%),
-        radial-gradient(circle at bottom right,rgba(15,23,42,.9),rgba(15,23,42,.95));
-      mix-blend-mode:screen;
-      opacity:.9;
+        radial-gradient(circle at 12% 6%, rgba(251,191,36,.18), transparent 52%),
+        radial-gradient(circle at 88% 76%, rgba(56,189,248,.10), transparent 56%),
+        linear-gradient(180deg, rgba(2,6,23,.45), rgba(2,6,23,.15));
+      opacity:.92;
+      z-index:0;
     }
     .hero-inner{
       position:relative;
-      z-index:2;
+      z-index:1;
       padding:30px 30px 30px;
       display:grid;
       grid-template-columns:minmax(0,1.15fr) minmax(0,.9fr);
@@ -139,459 +255,681 @@
       width:100%;
     }
 
-    .hero-logo{
-      height:60px;
-      width:auto;
-      margin-bottom:18px;
-    }
-
     .eyebrow{
       display:inline-flex;
       align-items:center;
       gap:8px;
-      padding:4px 12px;
+      padding:5px 12px;
       border-radius:999px;
-      border:1px solid rgba(148,163,184,.5);
-      background:rgba(15,23,42,.7);
+      border:1px solid rgba(148,163,184,.45);
+      background:rgba(15,23,42,.65);
       font-size:.72rem;
       text-transform:uppercase;
       letter-spacing:.18em;
       color:var(--muted);
     }
-    .eyebrow-dot{
+    .dot{
       width:8px;height:8px;border-radius:999px;
-      background:radial-gradient(circle at 30% 0,var(--accent),#f59e0b);
-      box-shadow:0 0 14px rgba(251,191,36,.9);
+      background:radial-gradient(circle at 30% 0,var(--gold),#f59e0b);
+      box-shadow:0 0 16px rgba(251,191,36,.9);
+    }
+
+    .hero-logo{
+      height:58px;
+      width:auto;
+      margin-bottom:16px;
+      filter:drop-shadow(0 12px 24px rgba(0,0,0,.45));
+      border-radius:14px;
     }
 
     .hero-title{
       font-family:"Playfair Display",serif;
-      margin-top:18px;
-      font-size:clamp(2.6rem,4.7vw,3.6rem);
+      margin-top:16px;
+      font-size:var(--h1);
       letter-spacing:-.04em;
     }
     .hero-copy{
-      margin-top:14px;
-      max-width:35rem;
+      margin-top:12px;
+      max-width:38rem;
       color:var(--muted);
-      font-size:.98rem;
+      font-size:var(--p);
     }
+
     .hero-tags{
       margin-top:18px;
       display:flex;
       flex-wrap:wrap;
-      gap:7px;
+      gap:8px;
     }
     .tag{
       font-size:.7rem;
-      padding:4px 11px;
+      padding:5px 11px;
       border-radius:999px;
-      border:1px solid rgba(148,163,184,.45);
-      background:rgba(15,23,42,.85);
+      border:1px solid rgba(148,163,184,.38);
+      background:rgba(15,23,42,.74);
       color:var(--muted);
     }
+    .tag.gold{
+      border-color:rgba(251,191,36,.55);
+      background:var(--goldGlow);
+      color:#ffe8a6;
+    }
 
-    .hero-cta-row{
+    .cta-row{
       margin-top:24px;
       display:flex;
       flex-wrap:wrap;
       gap:10px;
       align-items:center;
     }
-    .hero-primary{
-      padding:11px 24px;
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
       border-radius:999px;
-      border:none;
-      background:linear-gradient(135deg,#fde68a,#fbbf24);
-      color:#111827;
-      font-weight:600;
-      font-size:.9rem;
+      padding:11px 22px;
+      font-weight:650;
+      font-size:.86rem;
       text-transform:uppercase;
       letter-spacing:.14em;
+      border:1px solid transparent;
+      cursor:pointer;
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      user-select:none;
     }
-    .hero-secondary{
-      padding:9px 18px;
-      border-radius:999px;
-      border:1px solid rgba(148,163,184,.6);
-      background:rgba(15,23,42,.75);
+    .btn:focus{outline:2px solid rgba(251,191,36,.7); outline-offset:2px}
+    .btn.primary{
+      background:linear-gradient(135deg,var(--gold2),var(--gold));
+      color:#111827;
+      box-shadow:0 14px 40px rgba(0,0,0,.42);
+    }
+    .btn.primary:hover{transform:translateY(-1px); box-shadow:0 18px 52px rgba(0,0,0,.52)}
+    .btn.ghost{
+      background:rgba(15,23,42,.64);
+      border-color:rgba(148,163,184,.55);
       color:var(--muted);
-      font-size:.8rem;
     }
-
+    .btn.ghost:hover{border-color:rgba(251,191,36,.55); color:var(--ink); transform:translateY(-1px)}
     .hero-note{
       margin-top:10px;
       font-size:.78rem;
-      color:var(--muted);
+      color:var(--muted2);
     }
 
-    /* HERO SIDE STACK */
+    /* Hero side stack */
     .hero-side{
       height:100%;
       display:flex;
       align-items:center;
       justify-content:flex-end;
     }
-    .hero-stack{
+    .stack{
       position:relative;
       width:100%;
-      max-width:380px;
-      height:310px;
+      max-width:390px;
+      height:330px;
     }
-    .hero-stack-card{
+    .stack-card{
       position:absolute;
       inset:0;
       border-radius:24px;
-      border:1px solid rgba(148,163,184,.5);
+      border:1px solid rgba(148,163,184,.46);
       overflow:hidden;
       background:#020617;
-      box-shadow:var(--shadow-big);
+      box-shadow:var(--shadow);
+      transform:translateZ(0);
     }
-    .hero-stack-main{
+    .stack-main{
       background:
-        linear-gradient(to top,rgba(15,23,42,.85),transparent 55%),
+        linear-gradient(to top,rgba(15,23,42,.86),transparent 55%),
         url("images/family-sunset.jpg") center/cover no-repeat;
     }
-    .hero-stack-small{
-      inset:auto 24px -40px auto;
-      width:54%;
-      height:52%;
+    .stack-small{
+      inset:auto 22px -44px auto;
+      width:56%;
+      height:54%;
       border-radius:20px;
       background:
-        linear-gradient(to top,rgba(15,23,42,.9),transparent 50%),
+        linear-gradient(to top,rgba(15,23,42,.92),transparent 52%),
         url("images/couple-portrait.jpg") center/cover no-repeat;
-      border:1px solid rgba(251,191,36,.6);
+      border:1px solid rgba(251,191,36,.62);
+      box-shadow:0 18px 40px rgba(0,0,0,.55);
     }
-    .hero-stack-label{
+    .stack-label{
       position:absolute;
       left:16px;
       bottom:14px;
-      padding:6px 10px;
+      padding:7px 11px;
       border-radius:999px;
-      background:rgba(15,23,42,.9);
-      border:1px solid rgba(148,163,184,.55);
-      font-size:.74rem;
+      background:rgba(15,23,42,.88);
+      border:1px solid rgba(148,163,184,.5);
+      font-size:.72rem;
       text-transform:uppercase;
       letter-spacing:.16em;
       color:var(--muted);
     }
 
-    /* SECTION HEADER */
+    /* Sections */
     .section-head{
-      margin-top:46px;
-      margin-bottom:14px;
+      margin-top:54px;
+      margin-bottom:16px;
       display:flex;
       justify-content:space-between;
-      gap:10px;
+      gap:12px;
       align-items:flex-end;
     }
     .section-head h2{
-      font-size:.9rem;
+      font-size:.85rem;
       text-transform:uppercase;
-      letter-spacing:.2em;
-      color:var(--muted);
+      letter-spacing:.22em;
+      color:var(--muted2);
     }
     .section-head small{
-      font-size:.8rem;
+      font-size:.82rem;
       color:var(--muted);
+      max-width:44rem;
+      text-align:right;
     }
 
-    /* WORK */
-    .projects{
-      display:grid;
-      gap:18px;
-    }
+    /* Work cards */
+    .projects{display:grid; gap:18px;}
     .project{
       display:grid;
       grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
       gap:18px;
       padding:14px;
       border-radius:var(--radius);
-      background:radial-gradient(circle at top left,rgba(15,23,42,.96),rgba(15,23,42,.92));
-      border:1px solid rgba(31,41,55,.95);
+      background:
+        radial-gradient(circle at top left, rgba(15,23,42,.95), rgba(15,23,42,.86));
+      border:1px solid rgba(148,163,184,.18);
+      box-shadow:0 16px 40px rgba(0,0,0,.28);
     }
-    /* Bigger visuals for all project cards */
     .project-visual{
       border-radius:18px;
       background-size:cover;
       background-position:center;
-      min-height:320px;
+      min-height:340px;
+      border:1px solid rgba(148,163,184,.18);
+      position:relative;
+      overflow:hidden;
+    }
+    .project-visual::after{
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(180deg, transparent 58%, rgba(2,6,23,.55));
+      opacity:.9;
+      pointer-events:none;
     }
     .project-meta{
-      font-size:.82rem;
       display:flex;
       flex-direction:column;
       justify-content:space-between;
-      gap:8px;
+      gap:10px;
+      padding:6px 4px 4px;
     }
-    .project-meta span.label{
-      font-size:.72rem;
+    .label{
+      font-size:.7rem;
       text-transform:uppercase;
-      letter-spacing:.2em;
-      color:var(--muted);
+      letter-spacing:.22em;
+      color:var(--muted2);
     }
     .project-meta h3{
       font-family:"Playfair Display",serif;
-      font-size:1.1rem;
-      letter-spacing:.04em;
+      font-size:1.18rem;
+      letter-spacing:.02em;
+      margin-top:6px;
     }
     .project-meta p{
-      font-size:.82rem;
+      font-size:.9rem;
       color:var(--muted);
+      margin-top:10px;
     }
+    .project-meta strong{color:#f3f4f6}
 
-    /* GALLERY STRIP */
+    /* Gallery */
     .gallery-strip{
-      margin-top:16px;
+      margin-top:14px;
       display:grid;
       grid-template-columns:repeat(4,minmax(0,1fr));
       gap:10px;
     }
-    .gallery-tile{
+    .tile{
       border-radius:16px;
-      border:1px solid rgba(31,41,55,.9);
+      border:1px solid rgba(148,163,184,.18);
       background-size:cover;
       background-position:center;
-      height:160px;
+      height:170px;
       background-color:#020617;
       overflow:hidden;
+      cursor:pointer;
+      transition:transform .18s ease, border-color .18s ease;
     }
+    .tile:hover{transform:translateY(-2px); border-color:rgba(251,191,36,.35)}
 
-    /* PACKAGES */
-    .packages{
+    /* Premium info panels */
+    .grid-2{
       margin-top:54px;
-      padding:22px 20px 24px;
-      border-radius:var(--radius-lg);
-      background:
-        radial-gradient(130% 200% at 100% 0%,rgba(251,191,36,.22),transparent 55%),
-        rgba(5,8,22,.98);
-      border:1px solid rgba(148,163,184,.7);
-    }
-    .packages h2{
-      font-size:.9rem;
-      text-transform:uppercase;
-      letter-spacing:.2em;
-      color:var(--muted);
-      margin-bottom:8px;
-    }
-    .packages-intro{
-      max-width:36rem;
-      font-size:.9rem;
-      color:var(--muted);
-      margin-bottom:20px;
-    }
-    .packages-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      grid-template-columns:repeat(2,minmax(0,1fr));
       gap:16px;
     }
-    .pkg-card{
-      background:var(--card);
-      border-radius:18px;
-      border:1px solid rgba(55,65,81,.95);
-      padding:14px 14px 16px;
-      font-size:.86rem;
+    .panel{
+      border-radius:var(--radius-lg);
+      border:1px solid rgba(148,163,184,.18);
+      background:rgba(5,8,22,.82);
+      box-shadow:0 18px 44px rgba(0,0,0,.22);
+      padding:18px 18px 16px;
       position:relative;
       overflow:hidden;
     }
-    .pkg-card::after{
+    .panel::after{
       content:"";
       position:absolute;
-      inset:auto -40px -60px auto;
-      width:130px;height:130px;
+      inset:auto -80px -90px auto;
+      width:180px; height:180px;
       border-radius:999px;
-      border:1px solid rgba(251,191,36,.4);
-      opacity:.3;
+      border:1px solid rgba(251,191,36,.35);
+      opacity:.25;
     }
-    .pkg-name{
+    .panel h3{
+      font-size:.85rem;
       text-transform:uppercase;
-      letter-spacing:.16em;
-      font-size:.75rem;
+      letter-spacing:.22em;
+      color:var(--muted2);
+      margin-bottom:10px;
+    }
+    .panel p{color:var(--muted); font-size:.92rem; max-width:42rem}
+    .bullets{
+      margin-top:12px;
+      display:grid;
+      gap:8px;
       color:var(--muted);
+      font-size:.9rem;
     }
-    .pkg-title{
-      margin-top:4px;
-      font-weight:500;
+    .bullets li{
+      list-style:none;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
     }
-    .pkg-meta{
-      margin-top:6px;
-      color:var(--muted);
-      font-size:.8rem;
-    }
-    .pkg-price{
-      margin-top:10px;
-      font-size:.86rem;
-      color:var(--accent);
+    .check{
+      width:18px; height:18px;
+      border-radius:6px;
+      border:1px solid rgba(251,191,36,.4);
+      background:rgba(251,191,36,.12);
+      margin-top:2px;
+      flex:0 0 auto;
     }
 
-    /* CONTACT */
+    /* Packages */
+    .packages{
+      margin-top:54px;
+      padding:22px 20px 22px;
+      border-radius:var(--radius-xl);
+      background:
+        radial-gradient(130% 200% at 100% 0%,rgba(251,191,36,.18),transparent 55%),
+        rgba(5,8,22,.92);
+      border:1px solid rgba(148,163,184,.22);
+      box-shadow:0 22px 60px rgba(0,0,0,.28);
+    }
+    .packages .kicker{
+      font-size:.85rem;
+      text-transform:uppercase;
+      letter-spacing:.22em;
+      color:var(--muted2);
+      margin-bottom:10px;
+    }
+    .packages .intro{
+      max-width:48rem;
+      font-size:.95rem;
+      color:var(--muted);
+      margin-bottom:16px;
+    }
+    .packages-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:16px;
+    }
+    .pkg{
+      background:linear-gradient(180deg, rgba(2,6,23,.86), rgba(2,6,23,.72));
+      border-radius:18px;
+      border:1px solid rgba(148,163,184,.18);
+      padding:16px 16px 16px;
+      position:relative;
+      overflow:hidden;
+    }
+    .pkg.featured{
+      border-color:rgba(251,191,36,.38);
+      box-shadow:0 18px 56px rgba(0,0,0,.34);
+    }
+    .badge{
+      display:inline-flex;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:.68rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      border:1px solid rgba(251,191,36,.45);
+      background:rgba(251,191,36,.12);
+      color:#ffe8a6;
+      margin-bottom:10px;
+      width:max-content;
+    }
+    .pkg .name{
+      font-size:.74rem;
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      color:var(--muted2);
+    }
+    .pkg .title{
+      font-family:"Playfair Display",serif;
+      font-size:1.15rem;
+      margin-top:6px;
+      letter-spacing:.02em;
+    }
+    .pkg .meta{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+    .pkg .price{
+      margin-top:14px;
+      font-size:.92rem;
+      color:var(--gold);
+      letter-spacing:.02em;
+    }
+    .pkg .includes{
+      margin-top:12px;
+      display:grid;
+      gap:8px;
+      color:var(--muted);
+      font-size:.88rem;
+    }
+    .pill-row{
+      margin-top:16px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .pill{
+      font-size:.72rem;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,.20);
+      background:rgba(15,23,42,.52);
+      color:var(--muted);
+    }
+
+    /* Approval flow */
+    .flow{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:10px;
+    }
+    .step{
+      border-radius:16px;
+      border:1px solid rgba(148,163,184,.18);
+      background:rgba(2,6,23,.55);
+      padding:12px 12px;
+    }
+    .step .n{
+      display:inline-flex;
+      width:28px; height:28px;
+      border-radius:10px;
+      align-items:center; justify-content:center;
+      border:1px solid rgba(251,191,36,.35);
+      background:rgba(251,191,36,.12);
+      color:#ffe8a6;
+      font-weight:700;
+      margin-bottom:8px;
+      font-size:.86rem;
+    }
+    .step strong{
+      display:block;
+      font-size:.86rem;
+      margin-bottom:6px;
+      letter-spacing:.02em;
+    }
+    .step span{
+      color:var(--muted);
+      font-size:.86rem;
+      display:block;
+    }
+
+    /* Contact / booking */
     .contact{
       margin-top:54px;
       display:grid;
-      grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);
-      gap:24px;
+      grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
+      gap:22px;
       align-items:flex-start;
     }
     .contact h2{
-      font-size:.9rem;
+      font-size:.85rem;
       text-transform:uppercase;
-      letter-spacing:.2em;
-      color:var(--muted);
-      margin-bottom:8px;
+      letter-spacing:.22em;
+      color:var(--muted2);
+      margin-bottom:10px;
     }
     .contact p{
-      max-width:32rem;
-      font-size:.9rem;
+      max-width:46rem;
+      font-size:.95rem;
       color:var(--muted);
     }
 
-    .booking-note{
-      margin-top:10px;
-      max-width:32rem;
-      font-size:.82rem;
-      color:var(--muted);
+    /* Tally embed wrapper */
+    .embed{
+      border-radius:var(--radius-lg);
+      border:1px solid rgba(148,163,184,.18);
+      background:rgba(2,6,23,.62);
+      box-shadow:0 18px 44px rgba(0,0,0,.22);
+      overflow:hidden;
+      position:relative;
     }
-    .booking-statuses{
-      margin-top:10px;
+    .embed-head{
+      padding:14px 14px;
+      border-bottom:1px solid rgba(148,163,184,.14);
       display:flex;
-      flex-wrap:wrap;
-      gap:6px;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      background:rgba(5,8,22,.7);
+    }
+    .embed-head .left{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+    .embed-head strong{
+      font-size:.84rem;
+      letter-spacing:.04em;
+    }
+    .embed-head span{
       font-size:.78rem;
+      color:var(--muted2);
     }
-    .booking-statuses span{
-      padding:4px 9px;
-      border-radius:999px;
-      border:1px solid rgba(55,65,81,.9);
-      background:#020617;
-      color:var(--muted);
+    .embed-body{
+      padding:0;
     }
-
-    form{
-      margin-top:4px;
-      max-width:420px;
-    }
-    input,textarea{
+    .embed iframe{
       width:100%;
-      padding:10px 11px;
-      border-radius:10px;
-      border:1px solid rgba(55,65,81,.95);
-      font-size:.9rem;
-      margin-bottom:10px;
-      background:#020617;
-      color:var(--ink);
+      height:640px;
+      border:0;
+      display:block;
+      background:transparent;
     }
-    textarea{min-height:110px;resize:vertical;}
-    button[type="submit"]{
-      padding:11px 18px;
-      border-radius:999px;
-      border:1px solid var(--accent);
-      background:linear-gradient(135deg,#fde68a,#fbbf24);
-      color:#111827;
-      font-size:.8rem;
-      font-weight:600;
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      width:100%;
+    .mini-note{
+      margin-top:10px;
+      font-size:.82rem;
+      color:var(--muted2);
     }
 
     footer{
-      padding:34px 18px 52px;
+      padding:36px 18px 52px;
       text-align:center;
       font-size:.78rem;
-      color:var(--muted);
-      margin-top:40px;
-      border-top:1px solid rgba(31,41,55,.9);
+      color:var(--muted2);
+      margin-top:46px;
+      border-top:1px solid rgba(148,163,184,.14);
+    }
+    footer a{color:var(--muted)}
+    footer a:hover{color:var(--gold)}
+
+    /* Modal */
+    .modal{
+      position:fixed; inset:0;
+      display:none;
+      place-items:center;
+      background:rgba(0,0,0,.72);
+      z-index:80;
+      padding:18px;
+    }
+    .modal.open{display:grid}
+    .modal-card{
+      width:min(980px, 100%);
+      border-radius:22px;
+      border:1px solid rgba(148,163,184,.22);
+      background:rgba(2,6,23,.92);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .modal-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 14px;
+      border-bottom:1px solid rgba(148,163,184,.14);
+    }
+    .modal-top strong{
+      font-size:.82rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      color:var(--muted2);
+    }
+    .close{
+      border:1px solid rgba(148,163,184,.24);
+      background:rgba(15,23,42,.62);
+      color:var(--ink);
+      border-radius:12px;
+      padding:8px 10px;
+      cursor:pointer;
+    }
+    .modal-img{
+      width:100%;
+      height:min(70vh, 620px);
+      object-fit:cover;
+      display:block;
     }
 
-    /* MOBILE */
-    @media(max-width:900px){
-      .hero-inner{
-        grid-template-columns:1fr;
-      }
-      .hero-side{
-        order:-1;
-      }
-      .hero-stack{
-        margin-bottom:4px;
-      }
-      .project{
-        grid-template-columns:1fr;
-      }
-      /* slightly shorter on smaller screens */
-      .project-visual{
-        min-height:240px;
-      }
-      .gallery-strip{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-      }
-      .contact{
-        grid-template-columns:1fr;
-      }
+    /* Motion preferences */
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      .btn, .tile, .nav-cta {transition:none}
     }
-    @media(max-width:640px){
-      .nav{display:none;}
-      .hero-title{font-size:2.2rem;}
-      .hero-logo{height:52px;}
-      .hero{
-        border-radius:22px;
-      }
+
+    /* Responsive */
+    @media(max-width:980px){
+      .hero-inner{grid-template-columns:1fr}
+      .hero-side{order:-1; justify-content:flex-start}
+      .stack{max-width:520px; height:300px}
+      .project{grid-template-columns:1fr}
+      .project-visual{min-height:260px}
+      .gallery-strip{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .grid-2{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+      .flow{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .section-head small{text-align:left}
+    }
+    @media(max-width:720px){
+      .nav{display:none}
+      .menu-btn{display:inline-flex}
+      .mobile-drawer{display:none}
+      .brand{min-width:auto}
+      .hero{border-radius:22px}
+      .hero-logo{height:52px}
     }
   </style>
 </head>
 
 <body>
+  <a class="skip" href="#main">Skip to content</a>
 
   <!-- TOP NAV -->
-  <header class="top">
+  <header class="top" aria-label="Site header">
     <div class="top-inner">
-      <div class="brand">
-        <img src="images/logo-lake-tahoe.jpg" alt="Lake Tahoe Visuals Studio logo">
-        <span>Lake Tahoe Visuals Studio</span>
-      </div>
-      <nav class="nav">
+      <a class="brand" href="#top" aria-label="Lake Tahoe Visuals Studio home">
+        <img src="images/logo-lake-tahoe.jpg" alt="Lake Tahoe Visuals Studio logo" />
+        <div class="name">
+          <strong>Lake Tahoe Visuals Studio</strong>
+          <span>Luxury winter imagery</span>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
         <a href="#work">Work</a>
         <a href="#sessions">Sessions</a>
-        <a href="#contact">Contact</a>
-        <a href="#contact" class="nav-cta">Book</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Book</a>
+        <a href="#contact" class="nav-cta">Request to Book</a>
       </nav>
+
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileDrawer">
+        Menu
+      </button>
+    </div>
+
+    <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-label="Mobile navigation">
+      <a href="#work">Work <span aria-hidden="true">→</span></a>
+      <a href="#sessions">Sessions <span aria-hidden="true">→</span></a>
+      <a href="#process">Process <span aria-hidden="true">→</span></a>
+      <a href="#contact">Request to Book <span aria-hidden="true">→</span></a>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <!-- HERO -->
-    <section class="hero" id="about">
-      <div class="hero-overlay"></div>
+    <section class="hero" id="top" aria-label="Hero">
       <div class="hero-inner">
         <div>
           <img src="images/logo-lake-tahoe.jpg" alt="Lake Tahoe Visuals Studio" class="hero-logo">
+
           <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
+            <span class="dot" aria-hidden="true"></span>
             Winter sessions · Lake Tahoe
           </div>
-          <h1 class="hero-title">Sessions, events, and adventures in the snow.</h1>
+
+          <!-- Option D copy -->
+          <h1 class="hero-title">Luxury winter sessions in Lake Tahoe.</h1>
           <p class="hero-copy">
-            Luxurious, cinematic winter imagery across North and South Lake Tahoe. Calm, guided sessions and a finished gallery
-            that feels like stills from a film.
+            Cinematic portraiture, events, and adventure coverage across <strong>North and South Lake Tahoe</strong>.
+            A calm, guided shoot with professional direction—delivered as a polished gallery with a <strong>film-still finish</strong>.
           </p>
-          <div class="hero-tags">
-            <span class="tag">Families &amp; couples</span>
-            <span class="tag">Adventures</span>
+
+          <div class="hero-tags" aria-label="Highlights">
+            <span class="tag gold">Request to book</span>
+            <span class="tag">Management approval</span>
+            <span class="tag">Professional editing</span>
             <span class="tag">Photo + video</span>
             <span class="tag">North &amp; South Lake</span>
           </div>
-          <div class="hero-cta-row">
-            <a href="#contact" class="hero-primary">Book a session</a>
-            <a href="#work" class="hero-secondary">Scroll the work</a>
+
+          <div class="cta-row">
+            <a href="#contact" class="btn primary">Request to Book</a>
+            <a href="#work" class="btn ghost">View Work</a>
           </div>
+
           <div class="hero-note">
-            One-hour sessions from $240 · Professional editing always included.
+            One-hour sessions from <strong>$240</strong> · Editing always included · Requests are <strong>not confirmed</strong> until approved.
           </div>
         </div>
 
-        <div class="hero-side">
-          <div class="hero-stack">
-            <div class="hero-stack-card hero-stack-main"></div>
-            <div class="hero-stack-card hero-stack-small"></div>
-            <div class="hero-stack-label">Recent winter gallery · 2024–2025</div>
+        <div class="hero-side" aria-hidden="true">
+          <div class="stack">
+            <div class="stack-card stack-main"></div>
+            <div class="stack-card stack-small"></div>
+            <div class="stack-label">Recent winter gallery · 2024–2025</div>
           </div>
         </div>
       </div>
@@ -600,10 +938,10 @@
     <!-- WORK -->
     <div class="section-head" id="work">
       <h2>Winter work</h2>
-      <small>Recent stories in snow, light, and atmosphere.</small>
+      <small>Recent stories in snow, light, and atmosphere — tap any gallery tile to view larger.</small>
     </div>
 
-    <section class="projects">
+    <section class="projects" aria-label="Featured work">
       <article class="project">
         <div class="project-visual" style="background-image:url('images/hero-lake-sunset.jpg');"></div>
         <div class="project-meta">
@@ -632,11 +970,11 @@
         <div class="project-visual" style="background-image:url('images/ski-lift.jpg');"></div>
         <div class="project-meta">
           <div>
-            <span class="label">Sessions</span>
+            <span class="label">Portraits</span>
             <h3>Winter portraits</h3>
             <p>Couples and families in clean framing with just enough of the mountains and lifts in the background.</p>
           </div>
-          <p>Fits into both <strong>Snow Mini</strong> and <strong>Signature Tahoe Session</strong> formats.</p>
+          <p>Fits into <strong>Snow Mini</strong> and <strong>Signature Tahoe Session</strong>.</p>
         </div>
       </article>
 
@@ -653,178 +991,273 @@
       </article>
     </section>
 
-    <!-- GALLERY STRIP -->
-    <div class="section-head">
+    <!-- GALLERY -->
+    <div class="section-head" id="gallery">
       <h2>Gallery</h2>
       <small>More frames from recent sessions.</small>
     </div>
-    <section class="gallery-strip" id="gallery">
-      <div class="gallery-tile" style="background-image:url('images/couple-portrait.jpg');"></div>
-      <div class="gallery-tile" style="background-image:url('images/family-sunset.jpg');"></div>
-      <div class="gallery-tile" style="background-image:url('images/kids-snow.jpg');"></div>
-      <div class="gallery-tile" style="background-image:url('images/drone-lake.jpg');"></div>
+
+    <section class="gallery-strip" aria-label="Gallery thumbnails">
+      <div class="tile" data-img="images/couple-portrait.jpg" style="background-image:url('images/couple-portrait.jpg');" role="button" tabindex="0" aria-label="Open gallery image 1"></div>
+      <div class="tile" data-img="images/family-sunset.jpg" style="background-image:url('images/family-sunset.jpg');" role="button" tabindex="0" aria-label="Open gallery image 2"></div>
+      <div class="tile" data-img="images/kids-snow.jpg" style="background-image:url('images/kids-snow.jpg');" role="button" tabindex="0" aria-label="Open gallery image 3"></div>
+      <div class="tile" data-img="images/drone-lake.jpg" style="background-image:url('images/drone-lake.jpg');" role="button" tabindex="0" aria-label="Open gallery image 4"></div>
     </section>
 
-    <!-- SESSIONS & PACKAGES (keep services + prices) -->
-    <section class="packages" id="sessions">
-      <h2>Sessions &amp; packages</h2>
-      <p class="packages-intro">
-        All sessions include professional editing, a curated online gallery, and high-resolution downloads
-        ready to print and share.
+    <!-- VALUE / HOW IT FEELS -->
+    <section class="grid-2" aria-label="Value and inclusions">
+      <div class="panel">
+        <h3>The experience</h3>
+        <p>
+          Calm direction, minimal posing, and a guided pace that keeps everything effortless.
+          You’ll walk away with images that feel <strong>clean, cinematic, and timeless</strong>.
+        </p>
+        <ul class="bullets" aria-label="Experience bullets">
+          <li><span class="check" aria-hidden="true"></span><span>Guided session flow (you never wonder what to do)</span></li>
+          <li><span class="check" aria-hidden="true"></span><span>Location scouting and timing around light</span></li>
+          <li><span class="check" aria-hidden="true"></span><span>Film-still editing style (premium contrast + tone)</span></li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h3>What you receive</h3>
+        <p>
+          A curated online gallery with high-resolution downloads ready to share, print, and keep.
+          Editing is included in every package.
+        </p>
+        <ul class="bullets" aria-label="Deliverables bullets">
+          <li><span class="check" aria-hidden="true"></span><span>Curated gallery + high-res downloads</span></li>
+          <li><span class="check" aria-hidden="true"></span><span>Color + contrast refinement on every final image</span></li>
+          <li><span class="check" aria-hidden="true"></span><span>Optional add-ons: drone (where permitted), reels, prints</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SESSIONS -->
+    <section class="packages" id="sessions" aria-label="Sessions and packages">
+      <div class="kicker">Sessions &amp; packages</div>
+      <p class="intro">
+        All sessions include professional editing, a curated gallery, and high-resolution downloads.
+        Choose a package below, then <strong>request to book</strong>—management confirms timing and conditions before anything is locked.
       </p>
 
       <div class="packages-grid">
-        <!-- Snow Mini -->
-        <div class="pkg-card">
-          <div class="pkg-name">Snow Mini</div>
-          <div class="pkg-title">Entry session</div>
-          <div class="pkg-meta">
-            60 minutes · 1 nearby location · relaxed winter session for couples and small families.
-          </div>
-          <div class="pkg-price">
-            From $200 · 25+ edited images
-          </div>
-        </div>
-
-        <!-- Signature Tahoe Session -->
-        <div class="pkg-card">
-          <div class="pkg-name">Signature Tahoe Session</div>
-          <div class="pkg-title">Most booked</div>
-          <div class="pkg-meta">
-            120 minutes · 1–2 locations · time for outfit tweaks, short walks, and a mix of portraits + candid moments.
-          </div>
-          <div class="pkg-price">
-            From $425 · 40+ edited images
+        <div class="pkg">
+          <div class="name">Snow Mini</div>
+          <div class="title">Entry session</div>
+          <div class="meta">60 minutes · 1 nearby location · relaxed winter session for couples and small families.</div>
+          <div class="price">From <strong>$240</strong> · 25+ edited images</div>
+          <div class="includes">
+            <div>• Guided direction + easy prompts</div>
+            <div>• Curated online gallery</div>
+            <div>• High-res downloads</div>
           </div>
         </div>
 
-        <!-- Story Session -->
-        <div class="pkg-card">
-          <div class="pkg-name">Story Session</div>
-          <div class="pkg-title">Cinematic adventure</div>
-          <div class="pkg-meta">
-            3 hours · multiple looks &amp; locations · perfect for proposals, anniversaries, or a full winter adventure.
+        <div class="pkg featured">
+          <div class="badge">Most booked</div>
+          <div class="name">Signature Tahoe Session</div>
+          <div class="title">The full portrait set</div>
+          <div class="meta">75 minutes · 1–2 locations · time for outfit tweaks, short walks, and a mix of portraits + candid moments.</div>
+          <div class="price">From <strong>$425</strong> · 40+ edited images</div>
+          <div class="includes">
+            <div>• Location + timing recommendation</div>
+            <div>• More variety: wide + close portraits</div>
+            <div>• Curated gallery + high-res downloads</div>
           </div>
-          <div class="pkg-price">
-            From $650 · 80+ edited images + short highlight reel
+        </div>
+
+        <div class="pkg">
+          <div class="name">Story Session</div>
+          <div class="title">Cinematic adventure</div>
+          <div class="meta">2 hours · multiple looks &amp; locations · perfect for proposals, anniversaries, or a full winter adventure.</div>
+          <div class="price">From <strong>$850</strong> · 80+ edited images + short highlight reel</div>
+          <div class="includes">
+            <div>• Full story coverage</div>
+            <div>• More locations + scenic pacing</div>
+            <div>• Highlight reel (short)</div>
           </div>
+        </div>
+      </div>
+
+      <div class="pill-row" aria-label="Add-ons">
+        <span class="pill">Drone (where permitted)</span>
+        <span class="pill">Rush delivery</span>
+        <span class="pill">Extra hour</span>
+        <span class="pill">Prints</span>
+        <span class="pill">Short reels</span>
+      </div>
+    </section>
+
+    <!-- PROCESS / APPROVAL -->
+    <div class="section-head" id="process">
+      <h2>Request to book process</h2>
+      <small>Clear expectations: request → review → confirm → pay → scheduled.</small>
+    </div>
+
+    <section class="panel" aria-label="Approval process details">
+      <p>
+        Every request enters our internal booking board as <strong>Pending</strong>. Management reviews timing, light,
+        conditions, and availability. If approved, you receive a confirmation email with next steps.
+        If not available, we suggest alternate times <strong>before you pay anything</strong>.
+      </p>
+
+      <div class="flow" aria-label="Approval steps">
+        <div class="step">
+          <div class="n">1</div>
+          <strong>Request</strong>
+          <span>Submit your dates, session type, and details.</span>
+        </div>
+        <div class="step">
+          <div class="n">2</div>
+          <strong>Review</strong>
+          <span>Management checks timing, conditions, and schedule.</span>
+        </div>
+        <div class="step">
+          <div class="n">3</div>
+          <strong>Approved</strong>
+          <span>You receive confirmation + next steps (deposit link if required).</span>
+        </div>
+        <div class="step">
+          <div class="n">4</div>
+          <strong>Scheduled</strong>
+          <span>Once confirmed, your session is locked in.</span>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT / BOOKING -->
-    <section id="contact" class="contact">
+    <!-- BOOKING -->
+    <section id="contact" class="contact" aria-label="Contact and booking">
       <div>
-        <h2>Contact &amp; booking</h2>
+        <h2>Request to book</h2>
         <p>
-          Share your dates, who’s coming, and the kind of session or adventure you’re imagining.
-          We’ll reply with timing, locations, and a package recommendation that fits.
+          Share your dates, group size, and the kind of session you’re imagining.
+          We’ll reply with timing, location options, and a package recommendation that fits.
         </p>
-        <p class="booking-note">
-          When you submit a request, it enters our internal booking board as <strong>Pending</strong>.
-          Management reviews timing, light, and conditions, then marks your session as <strong>Approved</strong>
-          and you’ll receive a confirmation email with next steps. If a slot isn’t available,
-          we’ll suggest alternate dates before you pay anything.
+        <p class="mini-note">
+          <strong>Requests are not confirmed</strong> until management approval. You won’t pay anything until your slot is approved.
         </p>
-        <div class="booking-statuses" aria-label="Booking statuses">
-          <span>Pending</span>
-          <span>Approved</span>
-          <span>Declined</span>
-          <span>Paid</span>
-          <span>Scheduled</span>
-        </div>
       </div>
 
-      <form action="https://formspree.io/f/xlgnjrvl" method="POST">
-        <input type="email" name="email" placeholder="Your email" required>
-        <input type="text" name="dates" placeholder="Preferred dates / flexibility">
-        <input type="text" name="session" placeholder="Session type (family, couple, event, adventure)">
-        <textarea name="message" placeholder="Tell us about your trip, group size, and must-have moments."></textarea>
-        <button type="submit">Send inquiry</button>
-      </form>
+      <!-- TALLY EMBED (Option 2) -->
+      <div class="embed" aria-label="Booking request form">
+        <div class="embed-head">
+          <div class="left">
+            <strong>Booking Request Form</strong>
+            <span>Submit → Pending → Management Approval</span>
+          </div>
+          <a class="btn ghost" href="#process" style="padding:9px 14px; font-size:.74rem;">How it works</a>
+        </div>
+
+        <div class="embed-body">
+          <!-- 1) Create your Tally form, then replace the URL below -->
+          <!-- Example: https://tally.so/r/XXXXXX -->
+          <iframe
+            data-tally-src="https://tally.so/r/REPLACE_THIS_WITH_YOUR_TALLY_FORM_ID"
+            loading="lazy"
+            title="Lake Tahoe Visuals Studio — Request to Book">
+          </iframe>
+        </div>
+      </div>
     </section>
 
     <footer>
-      © 2026 Lake Tahoe Visuals Studio · sfstudio.llc@gmail.com · Lake Tahoe
+      © 2026 Lake Tahoe Visuals Studio · <a href="mailto:sfstudio.llc@gmail.com">sfstudio.llc@gmail.com</a> · Lake Tahoe
     </footer>
   </main>
 
+  <!-- Modal for gallery -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-label="Image viewer">
+      <div class="modal-top">
+        <strong>Gallery view</strong>
+        <button class="close" id="closeModal" aria-label="Close">Close</button>
+      </div>
+      <img class="modal-img" id="modalImg" alt="Expanded gallery image" />
+    </div>
+  </div>
+
+  <!-- Tally embed script -->
+  <script async src="https://tally.so/widgets/embed.js"></script>
+
+  <script>
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const drawer = document.getElementById('mobileDrawer');
+
+    function closeDrawer(){
+      drawer.style.display = 'none';
+      menuBtn.setAttribute('aria-expanded','false');
+    }
+    function toggleDrawer(){
+      const open = menuBtn.getAttribute('aria-expanded') === 'true';
+      if(open){
+        closeDrawer();
+      } else {
+        drawer.style.display = 'block';
+        menuBtn.setAttribute('aria-expanded','true');
+      }
+    }
+    menuBtn.addEventListener('click', toggleDrawer);
+    drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+    document.addEventListener('click', (e) => {
+      if (!drawer.contains(e.target) && !menuBtn.contains(e.target)) closeDrawer();
+    });
+
+    // Active section highlight (desktop nav only)
+    const navLinks = Array.from(document.querySelectorAll('.nav a')).filter(a => a.getAttribute('href')?.startsWith('#'));
+    const sections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          navLinks.forEach(a => a.classList.remove('active'));
+          const id = '#' + entry.target.id;
+          const active = navLinks.find(a => a.getAttribute('href') === id);
+          if(active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 });
+
+    sections.forEach(s => obs.observe(s));
+
+    // Gallery modal
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modalImg');
+    const closeModalBtn = document.getElementById('closeModal');
+
+    function openModal(src){
+      modalImg.src = src;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+      closeModalBtn.focus();
+    }
+    function closeModal(){
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.tile').forEach(tile => {
+      const src = tile.getAttribute('data-img');
+      tile.addEventListener('click', () => openModal(src));
+      tile.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' || e.key === ' ') openModal(src);
+      });
+    });
+
+    closeModalBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
+  </script>
+
   <!--
-  BOOKING SYSTEM ARCHITECTURE NOTES (INTERNAL)
-  This block is for you / devs. It is not visible on the website.
-
-  Below is a complete, production-ready setup using Tally (form) → Airtable (dashboard) → Make (automation) → Email + optional Stripe.
-  You can swap Tally for Jotform if you prefer, but Tally is fast + clean.
-
-  Architecture (Approval Booking System)
-  Client → Website Form (Tally) → Airtable (Pending) → Admin Approves → Automation Sends Confirmation + (optional) Stripe deposit link
-
-  Statuses in Airtable:
-  - Pending
-  - Approved
-  - Declined
-  - Paid (optional)
-  - Scheduled (optional)
-
-  Step 1 — Create Airtable base (Admin dashboard)
-
-  Create a base called: Bookings – Tahoe Visuals Studio
-
-  Table: Booking Requests (fields)
-
-  - Request ID (formula)
-    REQ-{RECORD_ID()}
-  - Status (single select)
-    Pending / Approved / Declined / Paid / Scheduled
-  - Client Name (text)
-  - Email (email)
-  - Phone (text)
-  - Session Type (single select)
-    Portrait / Couple / Family / Snowboarding / Event / Adventure Day
-  - Preferred Date (date)
-  - Backup Date (date)
-  - Time Window (single select)
-    Sunrise / Morning / Midday / Sunset / Blue Hour / Night / Flexible
-  - Lake Side (single select)
-    North / South / Either
-  - Group Size (number)
-  - Location Notes (long text)
-  - Add-Ons (multi select)
-    Drone / Extra hour / Rush delivery / Extra edits / Prints
-  - Quoted Price (currency) (you can fill in before approval)
-  - Deposit Required (checkbox)
-  - Deposit Link (url) (Stripe payment link, optional)
-  - Admin Notes (long text)
-  - Created Time (created time)
-
-  Step 2 — Create the booking request form (Tally)
-
-  Title: Request to Book – Tahoe Visuals Studio
-
-  Headline:
-  Request a Booking
-  Luxury winter sessions across North & South Lake Tahoe. Requests are reviewed by management to confirm timing, location, and conditions. You’ll receive a confirmation when approved.
-
-  Fields (match Airtable):
-  - Full name
-  - Email
-  - Phone
-  - Session type (dropdown)
-  - Preferred date
-  - Backup date
-  - Time window
-  - North/South/Flexible
-  - Group size
-  - Notes (text area)
-  - Add-ons (checkboxes)
-
-  Confirmation message:
-  ✅ Request received — pending approval.
-  We’ll review your request and reply with confirmation and next steps.
-
-  Step 3 — Connect Tally → Airtable (auto-create “Pending” records)
-  Option A: Use Tally → Airtable integration (simplest) and map each form field into the Airtable table fields.
+    OPTION 2 BACKEND (Tally → Airtable → Make → Email + optional Stripe)
+    - Tally form submits to Airtable (Status=Pending)
+    - Management updates Status to Approved/Declined
+    - Make watches status changes and emails client
+    - Optional: Include Stripe Payment Link on Approved email
   -->
-
 </body>
 </html>
