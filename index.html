@@ -4,39 +4,40 @@
   <meta charset="UTF-8" />
   <title>Lake Tahoe Visuals Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Lake Tahoe Visuals Studio — sessions, events, and adventures around Lake Tahoe. Clean, cinematic, snow-driven imagery." />
+  <meta name="description" content="Lake Tahoe Visuals Studio — sessions, events, and adventures in and around Lake Tahoe. Clean, cinematic, snow-driven imagery." />
 
   <style>
     :root{
-      --bg:#f5f5f5;
-      --ink:#111827;
-      --muted:#6b7280;
-      --line:#e5e7eb;
-      --pill:#f3f4f6;
-      --accent:#111827;
+      --bg:#05060a;
+      --ink:#f9fafb;
+      --muted:#9ca3af;
+      --line:#1f2933;
+      --accent:#f9fafb;
+      --tag:#111827;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
 
     body{
       font-family:-apple-system,BlinkMacSystemFont,"Inter",system-ui,sans-serif;
-      background:var(--bg);
+      background:radial-gradient(circle at top,#111827 0,#05060a 48%,#020308 100%);
       color:var(--ink);
       line-height:1.6;
     }
 
     a{text-decoration:none;color:inherit}
 
-    /* TOP NAV (simple like an art site) */
+    /* TOP NAV */
     .top{
-      position:fixed;top:0;left:0;right:0;
-      background:rgba(245,245,245,.9);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid var(--line);
+      position:fixed;
+      top:0;left:0;right:0;
       z-index:20;
+      backdrop-filter:blur(14px);
+      background:rgba(5,6,10,.9);
+      border-bottom:1px solid var(--line);
     }
     .top-inner{
-      max-width:960px;
+      max-width:1040px;
       margin:auto;
       padding:10px 18px;
       display:flex;
@@ -50,47 +51,47 @@
       gap:8px;
     }
     .brand img{
-      height:28px;
+      height:26px;
       width:auto;
-      display:block;
     }
     .brand span{
-      font-size:.78rem;
-      letter-spacing:.18em;
+      font-size:.72rem;
       text-transform:uppercase;
+      letter-spacing:.18em;
       color:var(--muted);
+      white-space:nowrap;
     }
 
     .nav{
       display:flex;
-      gap:14px;
-      font-size:.8rem;
+      gap:16px;
+      font-size:.75rem;
       text-transform:uppercase;
       letter-spacing:.16em;
       color:var(--muted);
     }
+    .nav a{padding:4px 0;}
     .nav a:hover{color:var(--ink);}
 
-    /* LAYOUT */
     main{
-      max-width:960px;
+      max-width:1040px;
       margin:0 auto;
-      padding:80px 18px 72px;
+      padding:88px 18px 64px;
     }
 
-    /* HERO TEXT (plain, calm) */
+    /* HERO TEXT */
     .hero{
-      padding-top:56px;
+      padding-top:42px;
       padding-bottom:40px;
       border-bottom:1px solid var(--line);
     }
     .hero h1{
-      font-size:2.6rem;
+      font-size:2.5rem;
       letter-spacing:-.03em;
       margin-bottom:10px;
     }
     .hero p{
-      max-width:34rem;
+      max-width:32rem;
       color:var(--muted);
       font-size:.98rem;
     }
@@ -101,100 +102,140 @@
       gap:6px;
     }
     .tag{
-      font-size:.75rem;
-      padding:2px 10px;
+      font-size:.7rem;
+      padding:3px 10px 2px;
       border-radius:999px;
-      background:var(--pill);
-      border:1px solid var(--line);
+      background:var(--tag);
+      color:var(--muted);
+      border:1px solid rgba(148,163,184,.5);
+    }
+
+    /* PROJECT STRIPS */
+    .section-head{
+      padding-top:26px;
+      padding-bottom:6px;
+      border-bottom:1px solid var(--line);
+      margin-top:34px;
+    }
+    .section-head h2{
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
       color:var(--muted);
     }
 
-    /* PROJECT STRIPS (photo-as-background like an art index) */
     .projects{
-      border-bottom:1px solid var(--line);
+      padding-top:18px;
     }
+
     .project{
-      margin-top:40px;
-      border-radius:18px;
+      margin-top:30px;
+      border-radius:20px;
       overflow:hidden;
       border:1px solid var(--line);
+      background:#020308;
     }
     .project-visual{
-      height:52vh;
+      height:56vh;
       min-height:260px;
       background-size:cover;
       background-position:center;
     }
     .project-meta{
-      padding:12px 16px 18px;
-      border-top:1px solid var(--line);
       display:flex;
       justify-content:space-between;
-      gap:10px;
-      font-size:.85rem;
+      gap:12px;
+      padding:10px 14px 14px;
+      border-top:1px solid var(--line);
+      font-size:.82rem;
     }
-    .project-meta span{
+    .project-left span{
+      display:block;
       color:var(--muted);
+      font-size:.7rem;
+      letter-spacing:.22em;
+      text-transform:uppercase;
     }
-    .project-meta strong{
+    .project-left strong{
+      display:block;
+      margin-top:4px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
       font-weight:500;
     }
+    .project-right{
+      color:var(--muted);
+      font-size:.76rem;
+      text-align:right;
+      white-space:nowrap;
+    }
 
-    /* CONTACT SECTION */
+    /* CONTACT / ABOUT */
     .contact{
       padding-top:40px;
+      margin-top:40px;
+      border-top:1px solid var(--line);
     }
     .contact h2{
-      font-size:1.4rem;
-      margin-bottom:4px;
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      color:var(--muted);
+      margin-bottom:10px;
     }
     .contact p{
-      color:var(--muted);
-      font-size:.95rem;
       max-width:30rem;
+      font-size:.94rem;
+      color:var(--muted);
       margin-bottom:18px;
     }
 
     form{
       max-width:420px;
-      margin-top:4px;
+      margin-top:6px;
     }
     input,textarea{
       width:100%;
-      padding:11px;
+      padding:10px 11px;
       border-radius:10px;
       border:1px solid var(--line);
       font-size:.9rem;
       margin-bottom:10px;
-      background:#fff;
+      background:#020308;
+      color:var(--ink);
     }
     textarea{min-height:110px;resize:vertical;}
     button[type="submit"]{
       padding:11px 18px;
       border-radius:999px;
-      border:1px solid var(--ink);
-      background:var(--ink);
-      color:#fff;
-      font-size:.85rem;
+      border:1px solid var(--accent);
+      background:var(--accent);
+      color:#020308;
+      font-size:.8rem;
       font-weight:600;
       text-transform:uppercase;
-      letter-spacing:.12em;
+      letter-spacing:.14em;
       width:100%;
     }
 
     footer{
-      padding:32px 18px 48px;
+      padding:32px 18px 46px;
       border-top:1px solid var(--line);
       text-align:center;
-      font-size:.8rem;
+      font-size:.78rem;
       color:var(--muted);
-      margin-top:40px;
+      margin-top:36px;
     }
 
     @media(max-width:640px){
       .nav{display:none;}
-      .hero h1{font-size:2.2rem;}
+      .hero h1{font-size:2.1rem;}
       .project-visual{height:44vh;}
+      .project-meta{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .project-right{text-align:left;}
     }
   </style>
 </head>
@@ -209,7 +250,10 @@
         <span>Lake Tahoe Visuals Studio</span>
       </div>
       <nav class="nav">
-        <a href="#projects">Work</a>
+        <a href="#work">Work</a>
+        <a href="#sessions">Sessions</a>
+        <a href="#adventures">Adventures</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -217,76 +261,105 @@
 
   <main>
     <!-- HERO TEXT -->
-    <section class="hero">
+    <section class="hero" id="about">
       <h1>Sessions, events, and adventures by Lake Tahoe.</h1>
       <p>
-        Cinematic snow sessions and mountain adventures with a focus on clean, timeless imagery and a calm experience.
+        Clean, cinematic winter imagery anchored in snow, light, and atmosphere.
+        Built for families, couples, and adventures who want something that feels like stills from a film.
       </p>
       <div class="hero-tags">
-        <span class="tag">Families</span>
-        <span class="tag">Couples</span>
+        <span class="tag">Winter sessions</span>
+        <span class="tag">Families &amp; couples</span>
         <span class="tag">Adventures</span>
-        <span class="tag">North &amp; South Lake</span>
+        <span class="tag">Lake Tahoe</span>
       </div>
     </section>
 
-    <!-- PROJECT STRIPS -->
-    <section id="projects" class="projects">
-      <!-- Hero series -->
-      <article class="project">
+    <!-- WORK INDEX -->
+    <div class="section-head" id="work">
+      <h2>Work</h2>
+    </div>
+
+    <section class="projects">
+
+      <!-- Project 1: Family Session (hero lake sunset) -->
+      <article class="project" id="sessions">
         <div class="project-visual" style="background-image:url('images/hero-lake-sunset.jpg');"></div>
         <div class="project-meta">
-          <div>
-            <strong>Lake walk at sunset</strong><br>
-            <span>Family session · Winter light over the lake</span>
+          <div class="project-left">
+            <span>Family Session</span>
+            <strong>Lake walk at sunset</strong>
           </div>
-          <span>Sessions</span>
+          <div class="project-right">
+            Winter light · shoreline · calm direction
+          </div>
         </div>
       </article>
 
-      <!-- Family / kids -->
+      <!-- Project 2: Kids in snow -->
       <article class="project">
         <div class="project-visual" style="background-image:url('images/kids-snow.jpg');"></div>
         <div class="project-meta">
-          <div>
-            <strong>Snow play</strong><br>
-            <span>Kids being kids in fresh snow</span>
+          <div class="project-left">
+            <span>Sessions</span>
+            <strong>Snow play</strong>
           </div>
-          <span>Sessions</span>
+          <div class="project-right">
+            Kids being kids in fresh snow
+          </div>
         </div>
       </article>
 
-      <!-- Drone / landscape -->
-      <article class="project">
+      <!-- Project 3: Drone lake view -->
+      <article class="project" id="adventures">
         <div class="project-visual" style="background-image:url('images/drone-lake.jpg');"></div>
         <div class="project-meta">
-          <div>
-            <strong>Lake from above</strong><br>
-            <span>Aerial views of Tahoe in winter</span>
+          <div class="project-left">
+            <span>Adventures</span>
+            <strong>Drone lake view</strong>
           </div>
-          <span>Adventures</span>
+          <div class="project-right">
+            Aerial perspective over winter Tahoe
+          </div>
         </div>
       </article>
 
-      <!-- Snowboard / action -->
+      <!-- Project 4: Snowboard adventure -->
       <article class="project">
         <div class="project-visual" style="background-image:url('images/snowboarder.jpg');"></div>
         <div class="project-meta">
-          <div>
-            <strong>On the mountain</strong><br>
-            <span>Snowboard sessions and chairlift stories</span>
+          <div class="project-left">
+            <span>Adventures</span>
+            <strong>On the mountain</strong>
           </div>
-          <span>Adventures</span>
+          <div class="project-right">
+            Chairlifts, runs, and in-between moments
+          </div>
         </div>
       </article>
+
+      <!-- Project 5: Optional extra family / portrait -->
+      <article class="project">
+        <div class="project-visual" style="background-image:url('images/family-sunset.jpg');"></div>
+        <div class="project-meta">
+          <div class="project-left">
+            <span>Sessions</span>
+            <strong>Winter portraits</strong>
+          </div>
+          <div class="project-right">
+            Families &amp; couples in clean, simple frames
+          </div>
+        </div>
+      </article>
+
     </section>
 
     <!-- CONTACT / BOOKING -->
     <section id="contact" class="contact">
-      <h2>Contact & booking</h2>
+      <h2>Contact &amp; booking</h2>
       <p>
         Tell us your dates, who’s coming, and the kind of session or adventure you’re imagining.
-        We’ll reply with timing and options.
+        We’ll reply with timing, location suggestions, and options that fit.
       </p>
 
       <form action="https://formspree.io/f/xlgnjrvl" method="POST">
@@ -305,4 +378,3 @@
 
 </body>
 </html>
-
