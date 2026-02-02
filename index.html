@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -309,11 +309,12 @@
       background:radial-gradient(circle at top left,rgba(15,23,42,.96),rgba(15,23,42,.92));
       border:1px solid rgba(31,41,55,.95);
     }
+    /* Bigger visuals for all project cards */
     .project-visual{
       border-radius:18px;
       background-size:cover;
       background-position:center;
-      min-height:210px;
+      min-height:320px;
     }
     .project-meta{
       font-size:.82rem;
@@ -353,11 +354,6 @@
       height:160px;
       background-color:#020617;
       overflow:hidden;
-    }
-    .gallery-tile::after{
-      content:"";
-      position:absolute;
-      inset:0;
     }
 
     /* PACKAGES */
@@ -499,6 +495,10 @@
       .project{
         grid-template-columns:1fr;
       }
+      /* slightly shorter on smaller screens */
+      .project-visual{
+        min-height:240px;
+      }
       .gallery-strip{
         grid-template-columns:repeat(2,minmax(0,1fr));
       }
@@ -632,18 +632,6 @@
       </article>
     </section>
 
-    <!-- GALLERY STRIP -->
-    <div class="section-head">
-      <h2>Gallery</h2>
-      <small>More frames from recent sessions.</small>
-    </div>
-    <section class="gallery-strip" id="gallery">
-      <div class="gallery-tile" style="background-image:url('images/couple-portrait.jpg');"></div>
-      <div class="gallery-tile" style="background-image:url('images/family-sunset.jpg');"></div>
-      <div class="gallery-tile" style="background-image:url('images/kids-snow.jpg');"></div>
-      <div class="gallery-tile" style="background-image:url('images/drone-lake.jpg');"></div>
-    </section>
-
     <!-- SESSIONS & PACKAGES (keep services + prices) -->
     <section class="packages" id="sessions">
       <h2>Sessions &amp; packages</h2>
@@ -670,7 +658,7 @@
           <div class="pkg-name">Signature Tahoe Session</div>
           <div class="pkg-title">Most booked</div>
           <div class="pkg-meta">
-            75 minutes · 1–2 locations · time for outfit tweaks, short walks, and a mix of portraits + candid moments.
+            120 minutes · 1–2 locations · time for outfit tweaks, short walks, and a mix of portraits + candid moments.
           </div>
           <div class="pkg-price">
             From $425 · 40+ edited images
@@ -682,7 +670,7 @@
           <div class="pkg-name">Story Session</div>
           <div class="pkg-title">Cinematic adventure</div>
           <div class="pkg-meta">
-            2 hours · multiple looks &amp; locations · perfect for proposals, anniversaries, or a full winter adventure.
+            3 hours · multiple looks &amp; locations · perfect for proposals, anniversaries, or a full winter adventure.
           </div>
           <div class="pkg-price">
             From $850 · 80+ edited images + short highlight reel
