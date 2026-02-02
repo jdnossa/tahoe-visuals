@@ -1,4 +1,4 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -444,6 +444,27 @@
       color:var(--muted);
     }
 
+    .booking-note{
+      margin-top:10px;
+      max-width:32rem;
+      font-size:.82rem;
+      color:var(--muted);
+    }
+    .booking-statuses{
+      margin-top:10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+      font-size:.78rem;
+    }
+    .booking-statuses span{
+      padding:4px 9px;
+      border-radius:999px;
+      border:1px solid rgba(55,65,81,.9);
+      background:#020617;
+      color:var(--muted);
+    }
+
     form{
       margin-top:4px;
       max-width:420px;
@@ -632,6 +653,18 @@
       </article>
     </section>
 
+    <!-- GALLERY STRIP -->
+    <div class="section-head">
+      <h2>Gallery</h2>
+      <small>More frames from recent sessions.</small>
+    </div>
+    <section class="gallery-strip" id="gallery">
+      <div class="gallery-tile" style="background-image:url('images/couple-portrait.jpg');"></div>
+      <div class="gallery-tile" style="background-image:url('images/family-sunset.jpg');"></div>
+      <div class="gallery-tile" style="background-image:url('images/kids-snow.jpg');"></div>
+      <div class="gallery-tile" style="background-image:url('images/drone-lake.jpg');"></div>
+    </section>
+
     <!-- SESSIONS & PACKAGES (keep services + prices) -->
     <section class="packages" id="sessions">
       <h2>Sessions &amp; packages</h2>
@@ -658,7 +691,7 @@
           <div class="pkg-name">Signature Tahoe Session</div>
           <div class="pkg-title">Most booked</div>
           <div class="pkg-meta">
-            120 minutes · 1–2 locations · time for outfit tweaks, short walks, and a mix of portraits + candid moments.
+            75 minutes · 1–2 locations · time for outfit tweaks, short walks, and a mix of portraits + candid moments.
           </div>
           <div class="pkg-price">
             From $425 · 40+ edited images
@@ -670,7 +703,7 @@
           <div class="pkg-name">Story Session</div>
           <div class="pkg-title">Cinematic adventure</div>
           <div class="pkg-meta">
-            3 hours · multiple looks &amp; locations · perfect for proposals, anniversaries, or a full winter adventure.
+            2 hours · multiple looks &amp; locations · perfect for proposals, anniversaries, or a full winter adventure.
           </div>
           <div class="pkg-price">
             From $850 · 80+ edited images + short highlight reel
@@ -687,6 +720,19 @@
           Share your dates, who’s coming, and the kind of session or adventure you’re imagining.
           We’ll reply with timing, locations, and a package recommendation that fits.
         </p>
+        <p class="booking-note">
+          When you submit a request, it enters our internal booking board as <strong>Pending</strong>.
+          Management reviews timing, light, and conditions, then marks your session as <strong>Approved</strong>
+          and you’ll receive a confirmation email with next steps. If a slot isn’t available,
+          we’ll suggest alternate dates before you pay anything.
+        </p>
+        <div class="booking-statuses" aria-label="Booking statuses">
+          <span>Pending</span>
+          <span>Approved</span>
+          <span>Declined</span>
+          <span>Paid</span>
+          <span>Scheduled</span>
+        </div>
       </div>
 
       <form action="https://formspree.io/f/xlgnjrvl" method="POST">
@@ -702,6 +748,83 @@
       © 2026 Lake Tahoe Visuals Studio · sfstudio.llc@gmail.com · Lake Tahoe
     </footer>
   </main>
+
+  <!--
+  BOOKING SYSTEM ARCHITECTURE NOTES (INTERNAL)
+  This block is for you / devs. It is not visible on the website.
+
+  Below is a complete, production-ready setup using Tally (form) → Airtable (dashboard) → Make (automation) → Email + optional Stripe.
+  You can swap Tally for Jotform if you prefer, but Tally is fast + clean.
+
+  Architecture (Approval Booking System)
+  Client → Website Form (Tally) → Airtable (Pending) → Admin Approves → Automation Sends Confirmation + (optional) Stripe deposit link
+
+  Statuses in Airtable:
+  - Pending
+  - Approved
+  - Declined
+  - Paid (optional)
+  - Scheduled (optional)
+
+  Step 1 — Create Airtable base (Admin dashboard)
+
+  Create a base called: Bookings – Tahoe Visuals Studio
+
+  Table: Booking Requests (fields)
+
+  - Request ID (formula)
+    REQ-{RECORD_ID()}
+  - Status (single select)
+    Pending / Approved / Declined / Paid / Scheduled
+  - Client Name (text)
+  - Email (email)
+  - Phone (text)
+  - Session Type (single select)
+    Portrait / Couple / Family / Snowboarding / Event / Adventure Day
+  - Preferred Date (date)
+  - Backup Date (date)
+  - Time Window (single select)
+    Sunrise / Morning / Midday / Sunset / Blue Hour / Night / Flexible
+  - Lake Side (single select)
+    North / South / Either
+  - Group Size (number)
+  - Location Notes (long text)
+  - Add-Ons (multi select)
+    Drone / Extra hour / Rush delivery / Extra edits / Prints
+  - Quoted Price (currency) (you can fill in before approval)
+  - Deposit Required (checkbox)
+  - Deposit Link (url) (Stripe payment link, optional)
+  - Admin Notes (long text)
+  - Created Time (created time)
+
+  Step 2 — Create the booking request form (Tally)
+
+  Title: Request to Book – Tahoe Visuals Studio
+
+  Headline:
+  Request a Booking
+  Luxury winter sessions across North & South Lake Tahoe. Requests are reviewed by management to confirm timing, location, and conditions. You’ll receive a confirmation when approved.
+
+  Fields (match Airtable):
+  - Full name
+  - Email
+  - Phone
+  - Session type (dropdown)
+  - Preferred date
+  - Backup date
+  - Time window
+  - North/South/Flexible
+  - Group size
+  - Notes (text area)
+  - Add-ons (checkboxes)
+
+  Confirmation message:
+  ✅ Request received — pending approval.
+  We’ll review your request and reply with confirmation and next steps.
+
+  Step 3 — Connect Tally → Airtable (auto-create “Pending” records)
+  Option A: Use Tally → Airtable integration (simplest) and map each form field into the Airtable table fields.
+  -->
 
 </body>
 </html>
