@@ -2,25 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Lake Tahoe Visuals Studio — Winter Photography</title>
+  <title>Lake Tahoe Visuals Studio — Luxury Winter Photography</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="winter photo sessions, events, and adventure coverage across North and South Lake Tahoe. Calm, guided direction. Film-still editing. Request to book — management approval required." />
-  <meta name="theme-color" content="#0a0a14" />
+  <meta name="description" content="Luxury winter photo sessions in Lake Tahoe. Calm, guided direction. Film-still editing. Request to book — management approval required." />
+  <meta name="theme-color" content="#0c1a2c" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Lake Tahoe Visuals Studio — Luxury Winter Photography" />
-  <meta property="og:description" content="Cinematic winter sessions, events, and adventure coverage across Lake Tahoe. Calm, guided direction. Film-still editing. Request to book — management approval required." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://tahoevisualsstudio.com/" />
-  <meta property="og:image" content="images/hero-lake-sunset.jpg" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Lake Tahoe Visuals Studio — Luxury Winter Photography" />
-  <meta name="twitter:description" content="Luxury winter sessions across North & South Lake Tahoe. Request to book — management approval required." />
-  <meta name="twitter:image" content="images/hero-lake-sunset.jpg" />
-
-  <!-- Premium Fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -28,20 +15,22 @@
 
   <style>
     :root {
-      --bg: #0a0a14;
-      --bg2: #12121f;
-      --surface: #1a1a2e;
-      --surface-light: rgba(30, 30, 50, 0.7);
-      --text: #f5f5f7;
-      --text-muted: #a0a0c0;
-      --text-light: #d0d0e0;
-      --accent: #d4af37;
-      --accent-glow: rgba(212, 175, 55, 0.15);
-      --accent-dark: #b8941f;
-      --border: rgba(255, 255, 255, 0.08);
-      --border-light: rgba(255, 255, 255, 0.12);
-      --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-      --shadow-heavy: 0 35px 60px rgba(0, 0, 0, 0.6);
+      /* Frosted Alpine Color Palette */
+      --bg: #0c1a2c;
+      --bg2: #142238;
+      --surface: #1e2a44;
+      --surface-light: rgba(30, 42, 68, 0.7);
+      --text: #f0f4f8;
+      --text-muted: #94a3b8;
+      --text-light: #cbd5e1;
+      --accent: #4cc9f0;
+      --accent-glow: rgba(76, 201, 240, 0.15);
+      --accent-dark: #38b2d7;
+      --accent-secondary: #7dd3fc;
+      --border: rgba(148, 163, 184, 0.1);
+      --border-light: rgba(148, 163, 184, 0.2);
+      --shadow: 0 20px 40px rgba(12, 26, 44, 0.5);
+      --shadow-heavy: 0 30px 60px rgba(12, 26, 44, 0.7);
       --radius: 16px;
       --radius-lg: 24px;
       --radius-xl: 32px;
@@ -49,6 +38,10 @@
       --h1: clamp(2.5rem, 4.5vw, 4rem);
       --h2: clamp(1.8rem, 3vw, 2.5rem);
       --body: clamp(1rem, 1.1vw, 1.1rem);
+      
+      /* Frost effect */
+      --frost-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      --frost-border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     * {
@@ -64,7 +57,10 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg);
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(30, 58, 138, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(12, 74, 110, 0.2) 0%, transparent 50%),
+        var(--bg);
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
@@ -116,15 +112,15 @@
     }
 
     .btn-primary {
-      background: var(--accent);
-      color: #000;
-      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #0c1a2c;
+      box-shadow: 0 10px 30px rgba(76, 201, 240, 0.3);
     }
 
     .btn-primary:hover {
-      background: var(--accent-dark);
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
       transform: translateY(-2px);
-      box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+      box-shadow: 0 15px 40px rgba(76, 201, 240, 0.4);
     }
 
     .btn-outline {
@@ -155,12 +151,28 @@
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 16px;
+      position: relative;
+    }
+
+    .section-label::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -8px;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
     }
 
     .section-title {
       font-size: var(--h2);
       margin-bottom: 20px;
       line-height: 1.2;
+      background: linear-gradient(135deg, var(--text-light), var(--accent-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .section-subtitle {
@@ -178,7 +190,7 @@
       width: 100%;
       z-index: 1000;
       padding: 20px 0;
-      background: rgba(10, 10, 20, 0.9);
+      background: rgba(12, 26, 44, 0.9);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
@@ -256,13 +268,26 @@
       padding-top: 80px;
     }
 
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(76, 201, 240, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(125, 211, 252, 0.1) 0%, transparent 50%);
+      z-index: -1;
+    }
+
     .hero-bg {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1;
+      z-index: -2;
     }
 
     .hero-bg::before {
@@ -272,7 +297,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(180deg, rgba(10,10,20,0.7) 0%, rgba(10,10,20,0.95) 100%);
+      background: linear-gradient(180deg, rgba(12,26,44,0.8) 0%, rgba(12,26,44,0.95) 100%);
       z-index: 1;
     }
 
@@ -291,8 +316,8 @@
       align-items: center;
       gap: 10px;
       padding: 8px 20px;
-      background: rgba(212, 175, 55, 0.1);
-      border: 1px solid rgba(212, 175, 55, 0.3);
+      background: rgba(76, 201, 240, 0.1);
+      border: 1px solid rgba(76, 201, 240, 0.3);
       border-radius: 100px;
       font-size: 0.8rem;
       letter-spacing: 0.1em;
@@ -308,6 +333,10 @@
       font-size: var(--h1);
       line-height: 1.1;
       margin-bottom: 24px;
+      background: linear-gradient(135deg, var(--text), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .hero-title span {
@@ -364,28 +393,13 @@
       position: relative;
       cursor: pointer;
       transition: var(--transition);
+      border: 1px solid var(--border);
     }
 
     .gallery-item:hover {
       transform: translateY(-5px);
+      border-color: var(--accent);
       box-shadow: var(--shadow-heavy);
-    }
-
-    .gallery-item:nth-child(1) {
-      grid-column: 1 / 7;
-      grid-row: 1 / 4;
-    }
-    .gallery-item:nth-child(2) {
-      grid-column: 7 / 13;
-      grid-row: 1 / 3;
-    }
-    .gallery-item:nth-child(3) {
-      grid-column: 1 / 5;
-      grid-row: 4 / 7;
-    }
-    .gallery-item:nth-child(4) {
-      grid-column: 5 / 13;
-      grid-row: 3 / 7;
     }
 
     .gallery-item img {
@@ -405,7 +419,7 @@
       left: 0;
       right: 0;
       padding: 20px;
-      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      background: linear-gradient(transparent, rgba(12,26,44,0.9));
       color: white;
       transform: translateY(10px);
       opacity: 0;
@@ -417,7 +431,13 @@
       opacity: 1;
     }
 
-    /* Experience Section */
+    /* Grid positions */
+    .gallery-item:nth-child(1) { grid-column: 1 / 7; grid-row: 1 / 4; }
+    .gallery-item:nth-child(2) { grid-column: 7 / 13; grid-row: 1 / 3; }
+    .gallery-item:nth-child(3) { grid-column: 1 / 5; grid-row: 4 / 7; }
+    .gallery-item:nth-child(4) { grid-column: 5 / 13; grid-row: 3 / 7; }
+
+    /* Experience Cards */
     .experience-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -425,16 +445,18 @@
     }
 
     .experience-card {
-      background: var(--surface);
+      background: var(--frost-bg);
+      backdrop-filter: blur(10px);
+      border: var(--frost-border);
       border-radius: var(--radius-lg);
       padding: 40px;
-      border: 1px solid var(--border);
       transition: var(--transition);
     }
 
     .experience-card:hover {
       border-color: var(--accent);
       transform: translateY(-10px);
+      box-shadow: var(--shadow);
     }
 
     .card-icon {
@@ -453,6 +475,7 @@
     .card-title {
       font-size: 1.3rem;
       margin-bottom: 16px;
+      color: var(--text-light);
     }
 
     .card-description {
@@ -477,7 +500,7 @@
       font-size: 0.9rem;
     }
 
-    /* Pricing */
+    /* Pricing Cards */
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -485,10 +508,11 @@
     }
 
     .pricing-card {
-      background: var(--surface);
+      background: var(--frost-bg);
+      backdrop-filter: blur(10px);
+      border: var(--frost-border);
       border-radius: var(--radius-lg);
       padding: 40px 30px;
-      border: 1px solid var(--border);
       position: relative;
       transition: var(--transition);
     }
@@ -496,6 +520,7 @@
     .pricing-card.featured {
       border-color: var(--accent);
       transform: scale(1.05);
+      background: linear-gradient(135deg, rgba(76, 201, 240, 0.1), rgba(12, 26, 44, 0.9));
     }
 
     .pricing-badge {
@@ -503,8 +528,8 @@
       top: -12px;
       left: 50%;
       transform: translateX(-50%);
-      background: var(--accent);
-      color: #000;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #0c1a2c;
       padding: 6px 20px;
       border-radius: 100px;
       font-size: 0.8rem;
@@ -531,6 +556,7 @@
     .pricing-title {
       font-size: 1.8rem;
       margin-bottom: 15px;
+      color: var(--text-light);
     }
 
     .pricing-price {
@@ -561,7 +587,7 @@
       color: var(--accent);
     }
 
-    /* Process */
+    /* Process Steps */
     .process-steps {
       display: flex;
       justify-content: space-between;
@@ -577,7 +603,7 @@
       left: 50px;
       right: 50px;
       height: 1px;
-      background: var(--border);
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
       z-index: 0;
     }
 
@@ -593,8 +619,9 @@
       width: 80px;
       height: 80px;
       border-radius: 50%;
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: var(--frost-bg);
+      backdrop-filter: blur(10px);
+      border: var(--frost-border);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -607,13 +634,14 @@
 
     .process-step:hover .step-number {
       background: var(--accent);
-      color: #000;
+      color: #0c1a2c;
       border-color: var(--accent);
     }
 
     .step-title {
       font-size: 1.1rem;
       margin-bottom: 10px;
+      color: var(--text-light);
     }
 
     .step-description {
@@ -625,10 +653,11 @@
     .contact-form {
       max-width: 600px;
       margin: 0 auto;
-      background: var(--surface);
+      background: var(--frost-bg);
+      backdrop-filter: blur(10px);
+      border: var(--frost-border);
       border-radius: var(--radius-lg);
       padding: 50px;
-      border: 1px solid var(--border);
     }
 
     .form-group {
@@ -661,7 +690,8 @@
     .form-textarea:focus {
       outline: none;
       border-color: var(--accent);
-      background: rgba(212, 175, 55, 0.05);
+      background: rgba(76, 201, 240, 0.05);
+      box-shadow: 0 0 0 3px rgba(76, 201, 240, 0.1);
     }
 
     .form-textarea {
@@ -739,7 +769,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.9);
+      background: rgba(12, 26, 44, 0.95);
+      backdrop-filter: blur(10px);
       z-index: 2000;
       align-items: center;
       justify-content: center;
@@ -766,22 +797,18 @@
       font-size: 2rem;
       cursor: pointer;
       padding: 10px;
+      transition: var(--transition);
+    }
+
+    .modal-close:hover {
+      color: var(--accent);
     }
 
     .modal-image {
       width: 100%;
       height: 70vh;
       object-fit: contain;
-    }
-
-    /* Image fallbacks */
-    .image-placeholder {
-      background: linear-gradient(45deg, var(--surface), var(--bg2));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      font-size: 0.9rem;
+      border-radius: var(--radius);
     }
 
     /* Responsive */
@@ -813,7 +840,8 @@
         left: 0;
         width: 100%;
         height: 100vh;
-        background: rgba(10, 10, 20, 0.95);
+        background: rgba(12, 26, 44, 0.95);
+        backdrop-filter: blur(20px);
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -872,9 +900,29 @@
         justify-content: center;
       }
     }
+
+    /* Snowflake animation */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: var(--accent-secondary);
+      font-size: 1rem;
+      animation: fall linear infinite;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Snowflakes -->
+  <div id="snowflakes"></div>
+
   <!-- Navigation -->
   <nav class="navbar">
     <div class="container">
@@ -911,13 +959,14 @@
         </div>
         
         <h1 class="hero-title">
-          Luxury Winter Photography<br>
-          in <span>Lake Tahoe</span>
+          Frosted Moments in<br>
+          <span>Lake Tahoe</span>
         </h1>
         
         <p class="hero-description">
-          Cinematic portraiture, events, and adventure coverage across North and South Lake Tahoe. 
-          A calm, guided shoot with professional direction—delivered as a polished gallery with a film-still finish.
+          Cinematic winter photography with an icy elegance. 
+          Guided sessions that capture the serene beauty of Lake Tahoe's 
+          winter wonderland. Film-still editing for timeless memories.
         </p>
         
         <div class="hero-cta">
@@ -934,7 +983,7 @@
     </div>
     
     <a href="#work" class="hero-scroll">
-      <span>Explore Our Work</span>
+      <span>Explore Winter Gallery</span>
       <i class="fas fa-chevron-down"></i>
     </a>
   </section>
@@ -944,9 +993,9 @@
     <div class="container">
       <div class="section-header">
         <span class="section-label">Portfolio</span>
-        <h2 class="section-title">Winter Stories in Lake Tahoe</h2>
+        <h2 class="section-title">Frozen Moments Captured</h2>
         <p class="section-subtitle">
-          Recent moments captured across North and South Lake Tahoe during the winter season.
+          Recent winter sessions across North and South Lake Tahoe's most scenic locations.
         </p>
       </div>
       
@@ -955,7 +1004,7 @@
           <img src="images/family-sunset.jpg" alt="Family at Lake Tahoe Sunset">
           <div class="gallery-overlay">
             <h3>Family Session</h3>
-            <p>Lake walk at sunset</p>
+            <p>Sunset lake walk</p>
           </div>
         </div>
         
@@ -971,7 +1020,7 @@
           <img src="images/kids-snow.jpg" alt="Kids Playing in Snow">
           <div class="gallery-overlay">
             <h3>Snow Play</h3>
-            <p>Kids being kids in fresh snow</p>
+            <p>Joyful winter moments</p>
           </div>
         </div>
         
@@ -979,17 +1028,17 @@
           <img src="images/drone-lake.jpg" alt="Aerial Lake View">
           <div class="gallery-overlay">
             <h3>Aerial Views</h3>
-            <p>Drone coverage of the lake</p>
+            <p>Drone perspectives</p>
           </div>
         </div>
       </div>
 
-      <!-- Additional Gallery Images -->
+      <!-- Adventure Gallery -->
       <div class="section-header" style="margin-top: 80px;">
         <span class="section-label">Adventure</span>
-        <h2 class="section-title">On the Mountain</h2>
+        <h2 class="section-title">Mountain Chronicles</h2>
         <p class="section-subtitle">
-          Chairlifts, runs, and the small in-between details that make a winter day unforgettable.
+          Chairlifts, runs, and alpine adventures captured in their natural elegance.
         </p>
       </div>
 
@@ -998,7 +1047,7 @@
           <img src="images/ski-lift.jpg" alt="Ski Lift in Winter">
           <div class="gallery-overlay">
             <h3>Ski Lift</h3>
-            <p>Winter portraits with lifts in background</p>
+            <p>Alpine perspectives</p>
           </div>
         </div>
         
@@ -1006,7 +1055,15 @@
           <img src="images/snowboarder.jpg" alt="Snowboarder Action">
           <div class="gallery-overlay">
             <h3>Snowboarder</h3>
-            <p>Action shots on the mountain</p>
+            <p>Action on the slopes</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-img="images/hero-lake-sunset.jpg">
+          <img src="images/hero-lake-sunset.jpg" alt="Lake Tahoe Sunset">
+          <div class="gallery-overlay">
+            <h3>Lake Views</h3>
+            <p>Golden hour moments</p>
           </div>
         </div>
         
@@ -1014,15 +1071,7 @@
           <img src="images/family-sunset.jpg" alt="Another Family Shot">
           <div class="gallery-overlay">
             <h3>Family Memories</h3>
-            <p>Timeless winter moments</p>
-          </div>
-        </div>
-        
-        <div class="gallery-item" data-img="images/couple-portrait.jpg">
-          <img src="images/couple-portrait.jpg" alt="Another Couple Shot">
-          <div class="gallery-overlay">
-            <h3>Intimate Moments</h3>
-            <p>Couples in winter wonderland</p>
+            <p>Timeless connections</p>
           </div>
         </div>
       </div>
@@ -1034,9 +1083,9 @@
     <div class="container">
       <div class="section-header">
         <span class="section-label">Experience</span>
-        <h2 class="section-title">The Visuals Journey</h2>
+        <h2 class="section-title">The Alpine Journey</h2>
         <p class="section-subtitle">
-          From inquiry to delivery, every detail is meticulously crafted for a luxury experience.
+          From inquiry to delivery, every detail is crafted for an exceptional experience.
         </p>
       </div>
       
@@ -1050,9 +1099,9 @@
             Natural prompts and thoughtful framing that feels effortless, never forced.
           </p>
           <ul class="card-list">
-            <li><i class="fas fa-check"></i> Minimal posing, maximum authenticity</li>
+            <li><i class="fas fa-check"></i> Minimal posing, authentic moments</li>
             <li><i class="fas fa-check"></i> Location scouting for optimal light</li>
-            <li><i class="fas fa-check"></i> Timing around golden hour and weather</li>
+            <li><i class="fas fa-check"></i> Timing around weather and conditions</li>
           </ul>
         </div>
         
@@ -1060,14 +1109,14 @@
           <div class="card-icon">
             <i class="fas fa-film"></i>
           </div>
-          <h3 class="card-title">Film-Still Editing</h3>
+          <h3 class="card-title">Frosted Editing</h3>
           <p class="card-description">
-            A signature editing style inspired by cinematic film photography.
+            A signature editing style with cool tones and cinematic depth.
           </p>
           <ul class="card-list">
-            <li><i class="fas fa-check"></i> Rich contrast and tonal depth</li>
-            <li><i class="fas fa-check"></i> Timeless color grading</li>
-            <li><i class="fas fa-check"></i> Individual attention to each image</li>
+            <li><i class="fas fa-check"></i> Cool color grading</li>
+            <li><i class="fas fa-check"></i> Cinematic contrast</li>
+            <li><i class="fas fa-check"></i> Individual image attention</li>
           </ul>
         </div>
         
@@ -1077,12 +1126,12 @@
           </div>
           <h3 class="card-title">Luxury Delivery</h3>
           <p class="card-description">
-            Your images presented as a curated collection, ready to share and treasure.
+            Your images presented as a curated winter collection.
           </p>
           <ul class="card-list">
             <li><i class="fas fa-check"></i> Private online gallery</li>
-            <li><i class="fas fa-check"></i> High-resolution digital files</li>
-            <li><i class="fas fa-check"></i> Optional archival prints and albums</li>
+            <li><i class="fas fa-check"></i> High-resolution files</li>
+            <li><i class="fas fa-check"></i> Optional archival prints</li>
           </ul>
         </div>
       </div>
@@ -1094,10 +1143,10 @@
     <div class="container">
       <div class="section-header">
         <span class="section-label">Collections</span>
-        <h2 class="section-title">Session Collections</h2>
+        <h2 class="section-title">Winter Session Collections</h2>
         <p class="section-subtitle">
-          All collections include professional editing, a curated gallery, 
-          and high-resolution downloads. Requests are reviewed before confirmation.
+          All collections include professional editing, curated gallery, 
+          and high-resolution downloads. Requests reviewed before confirmation.
         </p>
       </div>
       
@@ -1105,7 +1154,7 @@
         <div class="pricing-card">
           <div class="pricing-header">
             <div class="pricing-name">Snow Mini</div>
-            <h3 class="pricing-title">Essence Session</h3>
+            <h3 class="pricing-title">Frost Session</h3>
             <div class="pricing-price">$395</div>
           </div>
           
@@ -1124,7 +1173,7 @@
           <div class="pricing-badge">Most Popular</div>
           <div class="pricing-header">
             <div class="pricing-name">Signature</div>
-            <h3 class="pricing-title">Tahoe Collection</h3>
+            <h3 class="pricing-title">Alpine Collection</h3>
             <div class="pricing-price">$795</div>
           </div>
           
@@ -1143,7 +1192,7 @@
         <div class="pricing-card">
           <div class="pricing-header">
             <div class="pricing-name">Story</div>
-            <h3 class="pricing-title">Alpine Adventure</h3>
+            <h3 class="pricing-title">Expedition Collection</h3>
             <div class="pricing-price">$1,295</div>
           </div>
           
@@ -1152,8 +1201,8 @@
             <li><i class="fas fa-check"></i> Multiple locations</li>
             <li><i class="fas fa-check"></i> 80+ edited images</li>
             <li><i class="fas fa-check"></i> 60-second highlight reel</li>
-            <li><i class="fas fa-check"></i> Drone coverage (where permitted)</li>
-            <li><i class="fas fa-check"></i> Luxury keepsake box</li>
+            <li><i class="fas fa-check"></i> Drone coverage (permitted)</li>
+            <li><i class="fas fa-check"></i> Keepsake presentation</li>
           </ul>
           
           <a href="#contact" class="btn btn-outline" style="width: 100%;">Inquire</a>
@@ -1167,7 +1216,7 @@
     <div class="container">
       <div class="section-header">
         <span class="section-label">Process</span>
-        <h2 class="section-title">Approval Process</h2>
+        <h2 class="section-title">The Approval Journey</h2>
         <p class="section-subtitle">
           Every request is carefully reviewed to ensure optimal conditions 
           and artistic alignment before confirmation.
@@ -1215,7 +1264,7 @@
     <div class="container">
       <div class="section-header">
         <span class="section-label">Contact</span>
-        <h2 class="section-title">Request Your Session</h2>
+        <h2 class="section-title">Request Your Winter Session</h2>
         <p class="section-subtitle">
           Share your vision, dates, and details. We'll handle the rest.
         </p>
@@ -1243,8 +1292,8 @@
             <select id="session" class="form-select">
               <option value="">Select a collection</option>
               <option value="snow-mini">Snow Mini - $395</option>
-              <option value="signature">Signature Tahoe - $795</option>
-              <option value="story">Alpine Adventure - $1,295</option>
+              <option value="signature">Alpine Collection - $795</option>
+              <option value="story">Expedition Collection - $1,295</option>
               <option value="custom">Custom Experience</option>
             </select>
           </div>
@@ -1283,7 +1332,7 @@
             <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;">Lake Tahoe Visuals</div>
           </div>
           <p class="footer-description">
-            Luxury winter photography with cinematic editing. 
+            Luxury winter photography with frosted editing. 
             Private sessions by approval across North and South Lake Tahoe.
           </p>
           <p style="color: var(--accent); margin-top: 10px;">
@@ -1350,7 +1399,7 @@
       });
     });
 
-    // Smooth Scrolling for Anchor Links
+    // Smooth Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -1399,7 +1448,6 @@
     bookingForm.addEventListener('submit', (e) => {
       e.preventDefault();
       
-      // Get form data
       const formData = {
         name: document.getElementById('name').value,
         email: document.getElementById('email').value,
@@ -1409,16 +1457,13 @@
         message: document.getElementById('message').value
       };
       
-      // Simple validation
       if (!formData.name || !formData.email) {
         alert('Please fill in your name and email address.');
         return;
       }
       
-      // In a real implementation, you would send this to your backend
       console.log('Form submitted:', formData);
       
-      // Show success message
       alert('Thank you for your request. We will review it and get back to you within 48 hours.');
       bookingForm.reset();
     });
@@ -1445,14 +1490,1548 @@
       });
     });
 
-    // Add loading state for images
-    document.querySelectorAll('img').forEach(img => {
-      img.addEventListener('load', function() {
-        this.style.opacity = '1';
-      });
-      img.style.opacity = '0';
-      img.style.transition = 'opacity 0.3s ease';
+    // Snowflake Animation
+    function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.innerHTML = '❄';
+      snowflake.style.left = Math.random() * 100 + 'vw';
+      snowflake.style.animationDuration = Math.random() * 3 + 5 + 's';
+      snowflake.style.opacity = Math.random();
+      snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+      
+      document.getElementById('snowflakes').appendChild(snowflake);
+      
+      setTimeout(() => {
+        snowflake.remove();
+      }, 8000);
+    }
+
+    // Create initial snowflakes
+    for (let i = 0; i < 30; i++) {
+      setTimeout(() => createSnowflake(), i * 300);
+    }
+
+    // Continue creating snowflakes
+    setInterval(createSnowflake, 500);
+  </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lake Tahoe Visuals Studio — Luxury Winter Photography</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Luxury winter photo sessions in Lake Tahoe. Calm, guided direction. Film-still editing. Request to book — management approval required." />
+  <meta name="theme-color" content="#0c1a2c" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      /* Frosted Alpine Color Palette */
+      --bg: #0c1a2c;
+      --bg2: #142238;
+      --surface: #1e2a44;
+      --surface-light: rgba(30, 42, 68, 0.7);
+      --text: #f0f4f8;
+      --text-muted: #94a3b8;
+      --text-light: #cbd5e1;
+      --accent: #4cc9f0;
+      --accent-glow: rgba(76, 201, 240, 0.15);
+      --accent-dark: #38b2d7;
+      --accent-secondary: #7dd3fc;
+      --border: rgba(148, 163, 184, 0.1);
+      --border-light: rgba(148, 163, 184, 0.2);
+      --shadow: 0 20px 40px rgba(12, 26, 44, 0.5);
+      --shadow-heavy: 0 30px 60px rgba(12, 26, 44, 0.7);
+      --radius: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --h1: clamp(2.5rem, 4.5vw, 4rem);
+      --h2: clamp(1.8rem, 3vw, 2.5rem);
+      --body: clamp(1rem, 1.1vw, 1.1rem);
+      
+      /* Frost effect */
+      --frost-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      --frost-border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(30, 58, 138, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(12, 74, 110, 0.2) 0%, transparent 50%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, .serif {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 32px;
+      border-radius: 100px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      outline: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #0c1a2c;
+      box-shadow: 0 10px 30px rgba(76, 201, 240, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+      transform: translateY(-2px);
+      box-shadow: 0 15px 40px rgba(76, 201, 240, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border-light);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .section-label::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -8px;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .section-title {
+      font-size: var(--h2);
+      margin-bottom: 20px;
+      line-height: 1.2;
+      background: linear-gradient(135deg, var(--text-light), var(--accent-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-subtitle {
+      font-size: var(--body);
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 20px 0;
+      background: rgba(12, 26, 44, 0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo img {
+      height: 40px;
+      width: auto;
+      border-radius: 8px;
+    }
+
+    .logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      position: relative;
+      padding: 8px 0;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(76, 201, 240, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(125, 211, 252, 0.1) 0%, transparent 50%);
+      z-index: -1;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(12,26,44,0.8) 0%, rgba(12,26,44,0.95) 100%);
+      z-index: 1;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 20px;
+      background: rgba(76, 201, 240, 0.1);
+      border: 1px solid rgba(76, 201, 240, 0.3);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+
+    .hero-label i {
+      color: var(--accent);
+    }
+
+    .hero-title {
+      font-size: var(--h1);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, var(--text), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+
+    /* Gallery Preview */
+    .gallery-preview {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(6, 80px);
+      gap: 20px;
+      margin: 60px 0;
+    }
+
+    .gallery-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid var(--border);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+      box-shadow: var(--shadow-heavy);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      background: linear-gradient(transparent, rgba(12,26,44,0.9));
+      color: white;
+      transform: translateY(10px);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Grid positions */
+    .gallery-item:nth-child(1) { grid-column: 1 / 7; grid-row: 1 / 4; }
+    .gallery-item:nth-child(2) { grid-column: 7 / 13; grid-row: 1 / 3; }
+    .gallery-item:nth-child(3) { grid-column: 1 / 5; grid-row: 4 / 7; }
+    .gallery-item:nth-child(4) { grid-column: 5 / 13; grid-row: 3 / 7; }
+
+    /* Experience Cards */
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .experience-card {
+      background: var(--frost-bg);
+      backdrop-filter: blur(10px);
+      border: var(--frost-border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      transition: var(--transition);
+    }
+
+    .experience-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-10px);
+      box-shadow: var(--shadow);
+    }
+
+    .card-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: var(--radius);
+      background: var(--accent-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+      color: var(--text-light);
+    }
+
+    .card-description {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .card-list {
+      list-style: none;
+    }
+
+    .card-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      color: var(--text-light);
+    }
+
+    .card-list i {
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    /* Pricing Cards */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .pricing-card {
+      background: var(--frost-bg);
+      backdrop-filter: blur(10px);
+      border: var(--frost-border);
+      border-radius: var(--radius-lg);
+      padding: 40px 30px;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--accent);
+      transform: scale(1.05);
+      background: linear-gradient(135deg, rgba(76, 201, 240, 0.1), rgba(12, 26, 44, 0.9));
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #0c1a2c;
+      padding: 6px 20px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pricing-name {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .pricing-title {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: var(--text-light);
+    }
+
+    .pricing-price {
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--accent);
+    }
+
+    .pricing-price span {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 30px;
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+      color: var(--text-light);
+    }
+
+    .pricing-features i {
+      color: var(--accent);
+    }
+
+    /* Process Steps */
+    .process-steps {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 50px;
+      right: 50px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      z-index: 0;
+    }
+
+    .process-step {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      padding: 0 20px;
+    }
+
+    .step-number {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--frost-bg);
+      backdrop-filter: blur(10px);
+      border: var(--frost-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 0 auto 20px;
+      transition: var(--transition);
+    }
+
+    .process-step:hover .step-number {
+      background: var(--accent);
+      color: #0c1a2c;
+      border-color: var(--accent);
+    }
+
+    .step-title {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: var(--text-light);
+    }
+
+    .step-description {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Contact Form */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--frost-bg);
+      backdrop-filter: blur(10px);
+      border: var(--frost-border);
+      border-radius: var(--radius-lg);
+      padding: 50px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: rgba(76, 201, 240, 0.05);
+      box-shadow: 0 0 0 3px rgba(76, 201, 240, 0.1);
+    }
+
+    .form-textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--bg2);
+      padding: 80px 0 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .footer-logo img {
+      height: 40px;
+      width: auto;
+      border-radius: 8px;
+    }
+
+    .footer-description {
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+
+    .footer-links h4 {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: var(--text-light);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(12, 26, 44, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      max-width: 1000px;
+      width: 100%;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: -50px;
+      right: 0;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 10px;
+      transition: var(--transition);
+    }
+
+    .modal-close:hover {
+      color: var(--accent);
+    }
+
+    .modal-image {
+      width: 100%;
+      height: 70vh;
+      object-fit: contain;
+      border-radius: var(--radius);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .gallery-preview {
+        grid-template-rows: repeat(6, 60px);
+        gap: 15px;
+      }
+      
+      .process-steps {
+        flex-direction: column;
+        gap: 40px;
+      }
+      
+      .process-steps::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 60px 0;
+      }
+      
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(12, 26, 44, 0.95);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        z-index: 1000;
+      }
+      
+      .nav-links.active {
+        display: flex;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .hero-title {
+        font-size: clamp(2rem, 4vw, 2.5rem);
+      }
+      
+      .hero-cta {
+        flex-direction: column;
+      }
+      
+      .gallery-preview {
+        grid-template-rows: repeat(6, 50px);
+        gap: 10px;
+      }
+      
+      .contact-form {
+        padding: 30px 20px;
+      }
+      
+      .pricing-card.featured {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 16px;
+      }
+      
+      .gallery-preview {
+        grid-template-rows: repeat(6, 40px);
+        gap: 8px;
+      }
+      
+      .experience-card,
+      .pricing-card {
+        padding: 30px 20px;
+      }
+      
+      .btn {
+        padding: 14px 28px;
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* Snowflake animation */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: var(--accent-secondary);
+      font-size: 1rem;
+      animation: fall linear infinite;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Snowflakes -->
+  <div id="snowflakes"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="images/logo-lake-tahoe.jpg" alt="Lake Tahoe Visuals Studio">
+        <div class="logo-text">Lake Tahoe Visuals</div>
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#work">Portfolio</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#pricing">Collections</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact" class="btn btn-outline">Request Session</a></li>
+      </ul>
+      
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="images/hero-lake-sunset.jpg" alt="Lake Tahoe Winter Sunset">
+    </div>
+    
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-label">
+          <i class="fas fa-snowflake"></i>
+          Winter 2024-2025 Sessions
+        </div>
+        
+        <h1 class="hero-title">
+          Frosted Moments in<br>
+          <span>Lake Tahoe</span>
+        </h1>
+        
+        <p class="hero-description">
+          Cinematic winter photography with an icy elegance. 
+          Guided sessions that capture the serene beauty of Lake Tahoe's 
+          winter wonderland. Film-still editing for timeless memories.
+        </p>
+        
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">
+            <i class="fas fa-calendar-check"></i>
+            Request to Book
+          </a>
+          <a href="#work" class="btn btn-outline">
+            <i class="fas fa-images"></i>
+            View Portfolio
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <a href="#work" class="hero-scroll">
+      <span>Explore Winter Gallery</span>
+      <i class="fas fa-chevron-down"></i>
+    </a>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="work" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Portfolio</span>
+        <h2 class="section-title">Frozen Moments Captured</h2>
+        <p class="section-subtitle">
+          Recent winter sessions across North and South Lake Tahoe's most scenic locations.
+        </p>
+      </div>
+      
+      <div class="gallery-preview">
+        <div class="gallery-item" data-img="images/family-sunset.jpg">
+          <img src="images/family-sunset.jpg" alt="Family at Lake Tahoe Sunset">
+          <div class="gallery-overlay">
+            <h3>Family Session</h3>
+            <p>Sunset lake walk</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-img="images/couple-portrait.jpg">
+          <img src="images/couple-portrait.jpg" alt="Couple Portrait in Winter">
+          <div class="gallery-overlay">
+            <h3>Couple Portraits</h3>
+            <p>Winter elegance</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-img="images/kids-snow.jpg">
+          <img src="images/kids-snow.jpg" alt="Kids Playing in Snow">
+          <div class="gallery-overlay">
+            <h3>Snow Play</h3>
+            <p>Joyful winter moments</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-img="images/drone-lake.jpg">
+          <img src="images/drone-lake.jpg" alt="Aerial Lake View">
+          <div class="gallery-overlay">
+            <h3>Aerial Views</h3>
+            <p>Drone perspectives</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Adventure Gallery -->
+      <div class="section-header" style="margin-top: 80px;">
+        <span class="section-label">Adventure</span>
+        <h2 class="section-title">Mountain Chronicles</h2>
+        <p class="section-subtitle">
+          Chairlifts, runs, and alpine adventures captured in their natural elegance.
+        </p>
+      </div>
+
+      <div class="gallery-preview">
+        <div class="gallery-item" data-img="images/ski-lift.jpg">
+          <img src="images/ski-lift.jpg" alt="Ski Lift in Winter">
+          <div class="gallery-overlay">
+            <h3>Ski Lift</h3>
+            <p>Alpine perspectives</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-img="images/snowboarder.jpg">
+          <img src="images/snowboarder.jpg" alt="Snowboarder Action">
+          <div class="gallery-overlay">
+            <h3>Snowboarder</h3>
+            <p>Action on the slopes</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-img="images/hero-lake-sunset.jpg">
+          <img src="images/hero-lake-sunset.jpg" alt="Lake Tahoe Sunset">
+          <div class="gallery-overlay">
+            <h3>Lake Views</h3>
+            <p>Golden hour moments</p>
+          </div>
+        </div>
+        
+        <div class="gallery-item" data-img="images/family-sunset.jpg">
+          <img src="images/family-sunset.jpg" alt="Another Family Shot">
+          <div class="gallery-overlay">
+            <h3>Family Memories</h3>
+            <p>Timeless connections</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Experience</span>
+        <h2 class="section-title">The Alpine Journey</h2>
+        <p class="section-subtitle">
+          From inquiry to delivery, every detail is crafted for an exceptional experience.
+        </p>
+      </div>
+      
+      <div class="experience-grid">
+        <div class="experience-card">
+          <div class="card-icon">
+            <i class="fas fa-compass"></i>
+          </div>
+          <h3 class="card-title">Guided Direction</h3>
+          <p class="card-description">
+            Natural prompts and thoughtful framing that feels effortless, never forced.
+          </p>
+          <ul class="card-list">
+            <li><i class="fas fa-check"></i> Minimal posing, authentic moments</li>
+            <li><i class="fas fa-check"></i> Location scouting for optimal light</li>
+            <li><i class="fas fa-check"></i> Timing around weather and conditions</li>
+          </ul>
+        </div>
+        
+        <div class="experience-card">
+          <div class="card-icon">
+            <i class="fas fa-film"></i>
+          </div>
+          <h3 class="card-title">Frosted Editing</h3>
+          <p class="card-description">
+            A signature editing style with cool tones and cinematic depth.
+          </p>
+          <ul class="card-list">
+            <li><i class="fas fa-check"></i> Cool color grading</li>
+            <li><i class="fas fa-check"></i> Cinematic contrast</li>
+            <li><i class="fas fa-check"></i> Individual image attention</li>
+          </ul>
+        </div>
+        
+        <div class="experience-card">
+          <div class="card-icon">
+            <i class="fas fa-gem"></i>
+          </div>
+          <h3 class="card-title">Luxury Delivery</h3>
+          <p class="card-description">
+            Your images presented as a curated winter collection.
+          </p>
+          <ul class="card-list">
+            <li><i class="fas fa-check"></i> Private online gallery</li>
+            <li><i class="fas fa-check"></i> High-resolution files</li>
+            <li><i class="fas fa-check"></i> Optional archival prints</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Collections</span>
+        <h2 class="section-title">Winter Session Collections</h2>
+        <p class="section-subtitle">
+          All collections include professional editing, curated gallery, 
+          and high-resolution downloads. Requests reviewed before confirmation.
+        </p>
+      </div>
+      
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <div class="pricing-name">Snow Mini</div>
+            <h3 class="pricing-title">Frost Session</h3>
+            <div class="pricing-price">$395</div>
+          </div>
+          
+          <ul class="pricing-features">
+            <li><i class="fas fa-check"></i> 60 minute session</li>
+            <li><i class="fas fa-check"></i> 1 location in Tahoe</li>
+            <li><i class="fas fa-check"></i> 25+ edited images</li>
+            <li><i class="fas fa-check"></i> Online gallery</li>
+            <li><i class="fas fa-check"></i> High-res downloads</li>
+          </ul>
+          
+          <a href="#contact" class="btn btn-outline" style="width: 100%;">Inquire</a>
+        </div>
+        
+        <div class="pricing-card featured">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-header">
+            <div class="pricing-name">Signature</div>
+            <h3 class="pricing-title">Alpine Collection</h3>
+            <div class="pricing-price">$795</div>
+          </div>
+          
+          <ul class="pricing-features">
+            <li><i class="fas fa-check"></i> 75-90 minute session</li>
+            <li><i class="fas fa-check"></i> 1-2 locations</li>
+            <li><i class="fas fa-check"></i> 40+ edited images</li>
+            <li><i class="fas fa-check"></i> Priority scheduling</li>
+            <li><i class="fas fa-check"></i> Sneak peek within 48h</li>
+            <li><i class="fas fa-check"></i> Print release</li>
+          </ul>
+          
+          <a href="#contact" class="btn btn-primary" style="width: 100%;">Request to Book</a>
+        </div>
+        
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <div class="pricing-name">Story</div>
+            <h3 class="pricing-title">Expedition Collection</h3>
+            <div class="pricing-price">$1,295</div>
+          </div>
+          
+          <ul class="pricing-features">
+            <li><i class="fas fa-check"></i> 2-3 hour coverage</li>
+            <li><i class="fas fa-check"></i> Multiple locations</li>
+            <li><i class="fas fa-check"></i> 80+ edited images</li>
+            <li><i class="fas fa-check"></i> 60-second highlight reel</li>
+            <li><i class="fas fa-check"></i> Drone coverage (permitted)</li>
+            <li><i class="fas fa-check"></i> Keepsake presentation</li>
+          </ul>
+          
+          <a href="#contact" class="btn btn-outline" style="width: 100%;">Inquire</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Process</span>
+        <h2 class="section-title">The Approval Journey</h2>
+        <p class="section-subtitle">
+          Every request is carefully reviewed to ensure optimal conditions 
+          and artistic alignment before confirmation.
+        </p>
+      </div>
+      
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <h3 class="step-title">Request</h3>
+          <p class="step-description">
+            Submit your dates, session type, and vision details.
+          </p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <h3 class="step-title">Review</h3>
+          <p class="step-description">
+            Management checks timing, conditions, light, and schedule.
+          </p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <h3 class="step-title">Approval</h3>
+          <p class="step-description">
+            Receive confirmation with location options and next steps.
+          </p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <h3 class="step-title">Scheduled</h3>
+          <p class="step-description">
+            Your session is locked in with preparation guide sent.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Contact</span>
+        <h2 class="section-title">Request Your Winter Session</h2>
+        <p class="section-subtitle">
+          Share your vision, dates, and details. We'll handle the rest.
+        </p>
+      </div>
+      
+      <div class="contact-form">
+        <form id="bookingForm">
+          <div class="form-group">
+            <label class="form-label" for="name">Full Name</label>
+            <input type="text" id="name" class="form-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input type="email" id="email" class="form-input" required>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="phone">Phone Number</label>
+            <input type="tel" id="phone" class="form-input">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="session">Preferred Session</label>
+            <select id="session" class="form-select">
+              <option value="">Select a collection</option>
+              <option value="snow-mini">Snow Mini - $395</option>
+              <option value="signature">Alpine Collection - $795</option>
+              <option value="story">Expedition Collection - $1,295</option>
+              <option value="custom">Custom Experience</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="date">Preferred Date(s)</label>
+            <input type="text" id="date" class="form-input" placeholder="e.g., January 15-20, 2025">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="message">Your Vision & Details</label>
+            <textarea id="message" class="form-textarea" placeholder="Tell us about your group, any specific locations or moments you'd like to capture, and what this session means to you."></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary" style="width: 100%;">
+            <i class="fas fa-paper-plane"></i>
+            Submit Request
+          </button>
+          
+          <p style="text-align: center; margin-top: 20px; color: var(--text-muted); font-size: 0.9rem;">
+            <i class="fas fa-info-circle"></i> Requests are reviewed within 48 hours. 
+            You will not be charged until your session is approved.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-logo">
+            <img src="images/logo-lake-tahoe.jpg" alt="Lake Tahoe Visuals Studio">
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;">Lake Tahoe Visuals</div>
+          </div>
+          <p class="footer-description">
+            Luxury winter photography with frosted editing. 
+            Private sessions by approval across North and South Lake Tahoe.
+          </p>
+          <p style="color: var(--accent); margin-top: 10px;">
+            <i class="fas fa-envelope"></i> sfstudio.llc@gmail.com
+          </p>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#work">Portfolio</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#pricing">Collections</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#contact">Request Session</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#pricing">Winter Photography</a></li>
+            <li><a href="#pricing">Family Sessions</a></li>
+            <li><a href="#pricing">Couple Portraits</a></li>
+            <li><a href="#pricing">Adventure Coverage</a></li>
+            <li><a href="#pricing">Event Photography</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 Lake Tahoe Visuals Studio. All rights reserved. Luxury winter photography in Lake Tahoe.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal" id="imageModal">
+    <button class="modal-close" id="modalClose">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="modal-content">
+      <img class="modal-image" id="modalImage" src="" alt="">
+    </div>
+  </div>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
     });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Gallery Modal
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalClose = document.getElementById('modalClose');
+    
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        modalImage.src = img.src;
+        modalImage.alt = img.alt;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    
+    modalClose.addEventListener('click', () => {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+    
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Form Submission
+    const bookingForm = document.getElementById('bookingForm');
+    bookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        session: document.getElementById('session').value,
+        date: document.getElementById('date').value,
+        message: document.getElementById('message').value
+      };
+      
+      if (!formData.name || !formData.email) {
+        alert('Please fill in your name and email address.');
+        return;
+      }
+      
+      console.log('Form submitted:', formData);
+      
+      alert('Thank you for your request. We will review it and get back to you within 48 hours.');
+      bookingForm.reset();
+    });
+
+    // Active Navigation
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-links a');
+      
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Snowflake Animation
+    function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.innerHTML = '❄';
+      snowflake.style.left = Math.random() * 100 + 'vw';
+      snowflake.style.animationDuration = Math.random() * 3 + 5 + 's';
+      snowflake.style.opacity = Math.random();
+      snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+      
+      document.getElementById('snowflakes').appendChild(snowflake);
+      
+      setTimeout(() => {
+        snowflake.remove();
+      }, 8000);
+    }
+
+    // Create initial snowflakes
+    for (let i = 0; i < 30; i++) {
+      setTimeout(() => createSnowflake(), i * 300);
+    }
+
+    // Continue creating snowflakes
+    setInterval(createSnowflake, 500);
   </script>
 </body>
 </html>
