@@ -1429,3 +1429,39 @@
   </script>
 </body>
 </html>
+(function(){
+  const video = document.querySelector('.hero-video');
+  const fallback = document.querySelector('.hero-fallback');
+
+  if (!video || !fallback) return;
+
+  // Respect reduced motion: don’t autoplay video
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) {
+    video.pause();
+    video.removeAttribute('autoplay');
+    video.style.display = 'none';
+    fallback.style.display = 'block';
+    return;
+  }
+
+  // If autoplay fails (common on iOS / low power), show fallback image
+  const playPromise = video.play();
+  if (playPromise && typeof playPromise.catch === 'function') {
+    playPromise.catch(() => {
+      video.style.display = 'none';
+      fallback.style.display = 'block';
+    });
+  }
+
+  // If video errors, show fallback image
+  video.addEventListener('error', () => {
+    video.style.display = 'none';
+    fallback.style.display = 'block';
+  });
+
+  // If it does play, hide fallback image
+  video.addEventListener('playing', () => {
+    fallback.style.display = 'none';
+  });
+})();
